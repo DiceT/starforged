@@ -1,0 +1,24 @@
+<form class="{{cssClass}} starforged wrapper" autocomplete="off">
+    <div class="starforged-dossier">
+        <div class="header">
+            <div>
+                <h2><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h2>            
+                {{#if data.lastKnown}}
+                    <h3>{{{enrichHTML data.lastKnown}}}</h3>
+                {{/if}}
+            </div>
+            <div style="text-align: center; vertical-aligh: middle;">
+                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="details top">
+                {{editor content=data.details target="data.details" button=true owner=owner editable=editable}}
+            </div>
+            <div class="details bottom">
+                {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+</form>

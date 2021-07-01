@@ -1,0 +1,158 @@
+@import url("./settings/fonts.css");
+
+@import url("./settings/global.css");
+
+@import url("./specifics/character-dock.css");
+@import url("./specifics/dice-chat.css");
+@import url("./specifics/starforged-dossier.css");
+
+.starforged {
+  margin: 0px;
+  padding: 0px;
+  color: #6ff;
+}
+
+.starforged .wrapper {
+  margin: 4px;
+  padding: 4px;  
+}
+
+.starforged input {
+  border: 0;
+  border-radius: 4px;
+  border-bottom: 1px solid #0b0b0b;
+  padding: 0px 8px 0px 8px;
+  width: 99%;
+}
+
+.starforged input:focus {
+  box-shadow: 0 0 10px #66ffff66;
+  cursor: pointer;
+}
+
+.starforged textarea {
+  border: 0;
+  border-radius: 4px;
+  border-bottom: 1px solid #0b0b0b;
+  color: #6ff;
+  padding: 0px 8px 0px 8px;
+  width: 99%;
+}
+
+.starforged textarea:focus {
+  box-shadow: 0 0 10px #66ffff66;
+  cursor: pointer;
+}
+
+.starforged select {
+  border: 0;
+  border-radius: 4px;
+  border-bottom: 1px solid #0b0b0b;
+  padding: 0px 8px 0px 8px;
+  width: 99%;
+}
+
+.starforged select:focus {
+  box-shadow: 0 0 10px #66ffff66;
+  cursor: pointer;
+}
+
+.starforged select option {
+  background-color: #339999;
+}
+
+.starforged img {
+  width: 60px;
+  height: 60px;
+  border: 0;
+}
+
+.difficulty img {
+  height: 20px;
+  width: 20px;
+}
+
+.starforged h1 {
+  border-bottom: 1px solid #66ffff99;
+}
+
+.starforged h2 {
+  border: 0;
+}
+
+
+.a-right {
+  text-align: right;
+}
+
+/*
+.starforged .sheet-tabs {
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.starforged .sheet-body,
+.starforged .sheet-body .tab,
+.starforged .sheet-body .tab .editor {
+  height: 100%;
+}
+*/
+.journalentry-sheet .editor,
+.starforged .editor{
+  min-height: 60px;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 4px; }
+
+.journalentry-sheet .tox-tinymce,
+.journalentry-sheet .tox-tinymce,
+.journalentry-sheet .tox-editor-container,
+.journalentry-sheet .tox-sidebar-wrap,
+.starforged .tox-tinymce,
+.starforged .tox-editor-container,
+.starforged .tox-sidebar-wrap,
+.starforged .tox-edit-area {
+  min-height: 170px;
+  height: 100% !important; }
+
+.journalentry-sheet .tox-tinymce,
+.starforged .tox-tinymce {
+  height: 100% !important; }
+  
+.tox.tox-tinymce .tox-toolbar,
+.journalentry-sheet .tox.tox-tinymce .tox-toolbar,
+.journalentry-sheet .tox-editor-container .tox-toolbar__primary,
+.journalentry-sheet .tox-tinymce .tox-toolbar-overlord,
+.journalentry-sheet .tox-tinymce .tox-toolbar__primary,
+.starforged .tox-tinymce .tox-toolbar-overlord,
+.starforged .tox-tinymce .tox-toolbar__primary {
+  background: #66ffff99 ;
+  border-bottom: 1px solid #000; }
+
+.journalentry-sheet .tox-tinymce button,
+.starforged .tox-tinymce button {
+font-size: 12px;
+padding: 0;
+border: 0;
+background: transparent;
+margin: 0;
+width: auto;
+height: auto; }
+
+.starforged .tox-tinymce button[title="Table"],
+.starforged .tox-tinymce button[title="Horizontal line"],
+.starforged .tox-tinymce button[title="Insert/edit link"] {
+display: none; }
+
+.starforged-dossier .journal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+

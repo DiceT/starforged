@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text&family=Carrois+Gothic+SC&display=swap');
+
+.mce-content-body {
+    font-family: "Carrois Gothic SC", sans-serif;
+    color: #6ff;
+}
+
+
+a.entity-link a.inline-roll {
+    background-color: #66ffff99;
+}
+
+::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 3px;
+    background: #33999933;
+    border: 1px solid #6ff;
+  }
+

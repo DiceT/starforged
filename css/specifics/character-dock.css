@@ -1,0 +1,154 @@
+.starforged-character-dock {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: center;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  background-image: none;
+}
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 1px 0px 1px;
+}
+
+.button-stack .dim {
+  color: #66ffff99;
+}
+
+.button-stack .bright {
+  color: #6ff;
+}
+
+.button-stack-button {
+  border: 1px solid #44aaaaff;
+  height: 22px;
+  padding: 0px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.button-stack-spacer {
+  border: none;
+  height: 22px;
+  padding: 0px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.button-stack-header {
+  border: 1px solid #44aaaaff;
+  height: 22px;
+  padding: 0px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+.x-small {
+  font-size: x-small;
+}
+
+.button-stack-button:hover {
+  background-color: #44aaaa99;
+  color: #000000;
+  cursor: pointer;
+}
+
+.mid {
+  border-radius: 0px;
+}
+
+.full {
+  border-radius: 4px;
+}
+
+.top {
+  border-radius: 4px 4px 0px 0px;
+}
+
+.bot {
+  border-radius: 0px 0px 4px 4px;
+}
+
+.top-left {
+  border-radius: 4px 0px 0px 0px;
+}
+
+.top-right {
+  border-radius: 0px 4px 0px 0px;
+}
+
+.bot-left {
+  border-radius: 0px 0px 0px 4px;
+}
+
+.bot-right {
+  border-radius: 0px 0px 4px 0px;
+}
+
+.horizontal-spacer {
+  width: 8px;
+}
+  
+.stat-footer {
+  display: grid;
+  grid-template-columns: 35px 35px;
+  font-weight: bold;
+}
+
+.roll-bonus-selected {
+  border: 1px solid #066;
+  background-color: #44aaaaff;
+}
+
+.starforged-character-dock .stat input {
+  height: 50px;
+  width: 70px;
+  color: #6ff;
+  border: 1px solid #44aaaa99;
+  border-radius: 0;
+  padding: 5px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.starforged-generator {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  text-align: center;
+  margin: 4px 0px 4px 0px;
+  padding: 0px;
+  background-image: none;
+}
+
+.generator-width {
+  width: 20%;
+}
+
+.progress-width {
+  width: 25%;
+}
+  
+.character-tab,
+.progress-button {
+  border-radius: 4px;
+  margin: 2px;
+}
+
+a.active {
+  border: 1px solid #066;
+  background-color: #44aaaaff;
+}
+
+  
+ 
+
+

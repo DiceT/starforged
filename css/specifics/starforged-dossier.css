@@ -1,0 +1,269 @@
+.starforged-dossier {
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  padding: 4px;
+  height: 95%;
+}
+
+.starforged-dossier .header {
+  display: grid;
+  grid-template-columns: auto 60px;  
+}
+
+.starforged-dossier .ability-header {
+  display: grid;
+  grid-template-columns: auto 24px;  
+}
+
+.starforged-dossier .ability-content {
+  display: grid;
+  grid-template-columns: 24px auto;
+  grid-gap: 6px;
+  height: auto;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 6px;
+  height: auto;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.starforged-dossier .ability-details {
+  padding: 4px;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+}
+
+.abilities-details h4 {
+  margin: 0px;
+}
+
+.starforged-dossier .ability-content [contenteditable] {
+  outline: 0px solid transparent;
+}
+
+.ability-content input[type=checkbox]{
+  position:absolute;
+  opacity: 0;
+  z-index: -9999;
+}
+
+.ability-content input[type=checkbox] + label{
+  position: relative;
+  padding-left: 24px;
+}
+
+.ability-content input[type=checkbox] + label .indicator{
+  position: absolute;
+  left: 0px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #44aaaa99;
+  border-radius:3px;
+  border:1px solid #33999999;
+  cursor: pointer;
+  transition: box-shadow 200ms, border 200ms, background 200ms;
+}
+
+.ability-content input[type=checkbox] + label .indicator:hover{
+  background: #66ffff99;
+}
+
+.ability-content input[type=checkbox]:focus + label .indicator{
+  box-shadow: 0px 0px 1px 3px #66ffff66;
+}
+
+.ability-content input[type=checkbox]:checked + label .indicator{
+  background: #66ffff66;
+}
+
+.ability-content input[type=checkbox]:checked + label .indicator::after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  border: 4px solid #66ffff99;
+  border-left: none;
+  border-top: none;
+  transform: rotate(30deg);
+  left: 2px;
+  bottom: 1px;
+}
+
+.asset-track {
+  display: grid;
+  grid-template-columns: 50px 30px auto 30px;
+  grid-gap: 4px;
+  margin: 4px 0px 8px 0px;
+  width: 98%;
+}
+
+.asset-impacts {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 4px;
+  margin: 4px 0px 8px 0px;
+  width: 98%;
+}
+
+.starforged .asset-track img {
+  margin: 2px;
+  height: 20px;
+  width: 20px;
+}
+
+.starforged-dossier .ability-details {
+  background-color: #33999933;
+}
+
+.starforged-dossier .ability-details:focus {
+  box-shadow: 0 0 10px #66ffff66;
+}
+
+.starforged-dossier .text-ability {
+  height: auto;
+}
+
+.starforged-dossier .content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.starforged-dossier .details {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.starforged-dossier .assets {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.starforged-dossier .asset-impacts {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  margin-bottom: 4px;
+  height: auto;
+}
+
+.starforged-dossier .asset-details {
+  width: 100%;
+}
+
+.asset-abilities {
+  padding: 2px;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+}
+
+.starforged-dossier .assets h4,
+.starforged-dossier .assets h5 {
+  margin: 1px;
+  padding: 1px;
+}
+
+.starforged-dossier .details .top {
+  height: auto;
+}
+
+.starforged-dossier .details .bottom {
+  height: 100%;
+}
+
+.starforged-dossier .character-header {
+  display: grid;
+  grid-template-columns: auto 144px 100px;  
+}
+
+.starforged-dossier .character-header img {
+  width: 90px;
+  height: 90px;
+}
+
+.starforged-dossier .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.starforged-dossier .hex-difficulty img {
+  width: 20px;
+  height: 20px;
+
+  margin: 0px 0px 0px 2px;
+}
+
+.starforged-dossier .progress-track img {
+  margin: 1px;
+  height: 40px;
+  width: 40px;
+}
+
+.progress-button {
+  width: 25%;
+}
+
+.difficulty-track {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.starforged-dossier .legacies {
+  display: grid;
+  grid-template-columns: 464px auto;
+  height: auto;
+}
+
+.starforged-dossier .challenges {
+  display: grid;
+  grid-template-columns: auto 464px auto;
+  height: auto;
+}
+
+.starforged-dossier .legacies h4 {
+  margin: 2px 0px 2px 0px;
+}
+
+.starforged-dossier .challenge-details {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  padding: 4px 8px 4px 8px;
+}
+
+.starforged-dossier .item-details {
+  display: none;
+  height: auto;
+}
+
+.starforged-dossier .collapsible {
+  cursor: pointer;
+  margin: 2px;
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+
+.legacies .challenges-header {
+  display: grid;
+  grid-template-columns: auto 100px 50px auto;
+  width: 100%;
+}

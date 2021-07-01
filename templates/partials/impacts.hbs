@@ -1,0 +1,32 @@
+<center><h4>IMPACTS</h4></center>
+<div class="button-stack">
+    <div class="button-stack-header dim top">MISFORTUNES</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.wounded}}roll-bonus-selected{{/if}}" data-impact="wounded" data-value="{{data.impacts.wounded}}">WOUNDED</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.shaken}}roll-bonus-selected{{/if}}" data-impact="shaken" data-value="{{data.impacts.shaken}}">SHAKEN</div>
+    <div class="button-stack-button bot impact-enabled {{#if data.impacts.unprepared}}roll-bonus-selected{{/if}}" data-impact="unprepared" data-value="{{data.impacts.unprepared}}">UNPREPARED</div>
+</div>
+<div class="button-stack" style="margin-top:8px">
+    <div class="button-stack-header dim top">LASTING EFFECTS</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.permanentlyHarmed}}roll-bonus-selected{{/if}}" data-impact="permanentlyHarmed" data-value="{{data.impacts.permanentlyHarmed}}">PERMANENTLY HARMED</div>
+    <div class="button-stack-button bot impact-enabled {{#if data.impacts.traumatized}}roll-bonus-selected{{/if}}" data-impact="traumatized" data-value="{{data.impacts.traumatized}}">TRAUMATIZED</div>
+</div>
+<div class="button-stack" style="margin-top:8px">
+    <div class="button-stack-header dim top">BURDENS</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.doomed}}roll-bonus-selected{{/if}}" data-impact="doomed" data-value="{{data.impacts.doomed}}">DOOMED</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.tormented}}roll-bonus-selected{{/if}}" data-impact="tormented" data-value="{{data.impacts.wounded}}">TORMENTED</div>
+    <div class="button-stack-button bot impact-enabled {{#if data.impacts.indebted}}roll-bonus-selected{{/if}}" data-impact="indebted" data-value="{{data.impacts.indebted}}">INDEBTED</div>
+</div>
+<div class="button-stack" style="margin-top:8px">
+    <div class="button-stack-header dim top">CURRENT VEHICLE</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.battered}}roll-bonus-selected{{/if}}" data-impact="battered" data-value="{{data.impacts.battered}}">BATTERED</div>
+    <div class="button-stack-button bot impact-enabled {{#if data.impacts.cursed}}roll-bonus-selected{{/if}}" data-impact="cursed" data-value="{{data.impacts.cursed}}">CURSED</div>
+</div>
+<div class="button-stack" style="margin-top:8px">
+    <div class="button-stack-header dim top">SPECIAL</div>
+    <div class="button-stack-button impact-enabled {{#if data.impacts.special1}}roll-bonus-selected{{/if}}" contenteditable data-edit="data.specialImpact1" data-impact="special1" data-value="{{data.impacts.special1}}">
+    {{{data.specialImpact1}}}
+    </div>
+    <div class="button-stack-button bot impact-enabled {{#if data.impacts.special2}}roll-bonus-selected{{/if}}" contenteditable data-edit="data.specialImpact2" data-impact="special2" data-value="{{data.impacts.special2}}">
+    {{{data.specialImpact2}}}
+    </div>
+</div>

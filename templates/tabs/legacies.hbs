@@ -1,0 +1,37 @@
+<div class="legacies">
+    <div>
+        <center><h4>LEGACIES</h4></center>
+        {{#each legacies as |item id|}}
+        <div class="challenge-details">
+            <center><h4>{{item.name}}</h4></center>
+            <div class="progress-track">
+                <center>{{#progressTrack data.progress}}{{/progressTrack}}</center>
+            </div>
+            <div class="starforged-generator">
+                <div class="button-stack-button full progress-button clear-progress" data-item-id="{{item._id}}">Clear</div>
+                <div class="button-stack-button full progress-button mark-progress" data-item-id="{{item._id}}">Progress</div>
+                <div class="button-stack-button full progress-button fulfill-progress" data-item-id="{{item._id}}">Continue</div>
+                <div class="button-stack-header full progress-button {{#if data.plusTen}}roll-bonus-selected{{/if}}">+10</div>
+            </div>
+        </div>
+        {{/each}}
+        <center><h4>BACKGROUND VOW</h4></center>
+        {{#each backgroundVows as |item id|}}
+        <div class="challenge-details" data-item-id="{{item._id}}">
+            <h4>{{item.name}}</h4>
+            <div class="progress-track">
+                <center>{{#progressTrack data.progress}}{{/progressTrack}}</center>
+            </div>
+            <div class="starforged-generator">
+                <div class="button-stack-button full progress-button clear-progress" data-item-id="{{item._id}}">Clear</div>
+                <div class="button-stack-button full progress-button mark-progress" data-item-id="{{item._id}}">Progress</div>
+                <div class="button-stack-button full progress-button fulfill-progress" data-item-id="{{item._id}}">Fulfill</div>
+                <div class="button-stack-button full progress-button complete-progress {{#if data.completed}}roll-bonus-selected{{/if}}" data-item-id="{{item._id}}">Complete</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div style="margin-left:8px">
+        {{> "systems/starforged/templates/partials/impacts.hbs" }}
+    </div>
+</div>

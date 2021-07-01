@@ -1,0 +1,41 @@
+<form class="{{cssClass}} starforged" autocomplete="off">
+    <div class="progress">
+        <div class="header">
+            <div class="profile-img">
+                <img src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+            </div> 
+            <div>
+                <h2 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h2>
+                <h2 class="charname">
+                    <select name="data.type">
+                        {{selectOptions config.progressType selected=data.type localize=true}}
+                    </select>
+                </h2>
+            </div>
+        </div>
+
+        <div>
+            <div class="difficulty-track">
+                <div><h3><b>{{data.difficulty}}</b></h3></div>
+                <div class="a-right">
+                    {{#difficultyTrack data.difficulty}}{{/difficultyTrack}}
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-track">
+            <center>{{#progressTrack data.progress}}{{/progressTrack}}</center>
+        </div>
+
+        <div class="progress-buttons">
+            <div class="progress-button clear-progress">Clear</div>
+            <div class="progress-button mark-progress">Progress</div>
+            <div class="progress-button fulfill-progress">Fulfill</div>
+            <div class="progress-button Complete-progress">Complete</div>
+        </div>
+
+        <div class="details">
+            {{editor content=data.details target="data.details" button=true owner=owner editable=editable}}
+        </div>
+    </div>
+</form>

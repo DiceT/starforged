@@ -1,0 +1,32 @@
+<div class="legacies">
+    <div>
+        <center><h4>COMPLETED</h4></center>
+        {{#each vowsCompleted as |item id|}}
+            {{> "systems/starforged/templates/partials/completed-block.hbs" }}
+        {{/each}}
+
+        {{#each combatsCompleted as |item id|}}
+            {{> "systems/starforged/templates/partials/completed-block.hbs" }}
+        {{/each}}
+
+        {{#each connectionsCompleted as |item id|}}
+            {{> "systems/starforged/templates/partials/completed-block.hbs" }}
+        {{/each}}
+
+        {{#each expeditionsCompleted as |item id|}}
+            {{> "systems/starforged/templates/partials/completed-block.hbs" }}
+        {{/each}}
+
+        {{#each derelictsCompleted as |item id|}}
+            {{> "systems/starforged/templates/partials/completed-block.hbs" }}
+        {{/each}}
+
+        {{#each precursorsCompleted as |item id|}}
+            {{> "systems/starforged/templates/partials/completed-block.hbs" }}
+        {{/each}}
+    </div>
+
+    <div style="margin-left:8px">
+        {{> "systems/starforged/templates/partials/impacts.hbs" }}
+    </div>
+</div>

@@ -1,0 +1,68 @@
+{
+  "name": "starforged",
+  "title": "Ironsworn: Starforged",
+  "description": "Ironsworn: Starforged for FoundryVTT!",
+  "version": "0.01",
+  "minimumCoreVersion": "0.8.3",
+  "compatibleCoreVersion": "0.8.6",
+  "author": "Dice T",
+  "esmodules": [
+    "modules/starforged.mjs"
+  ],
+  "styles": [
+    "css/starforged.css"
+  ],
+  "scripts": [],
+  "packs": [
+    {
+      "name": "assets",
+      "label": "Starforged Assets",
+      "system": "starforged",
+      "path": "./packs/assets.db",
+      "entity": "Item"
+    },
+    {
+      "name": "legacies",
+      "label": "Starforged Legacies",
+      "system": "starforged",
+      "path": "./packs/legacies.db",
+      "entity": "Item"
+    },
+    {
+      "name": "moves",
+      "label": "Starforged Moves",
+      "system": "starforged",
+      "path": "./packs/moves.db",
+      "entity": "Item"
+    },
+    {
+      "name": "tables",
+      "label": "Starforged Tables",
+      "system": "starforged",
+      "path": "./packs/tables.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "macros",
+      "label": "Starforged Macros",
+      "system": "starforged",
+      "path": "./packs/macros.db",
+      "entity": "Macro"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 0.5,
+  "gridUnits": "LY",
+  "primaryTokenAttribute": "",
+  "secondaryTokenAttribute": "",
+  "url": "https://github.com/DiceT/starforged",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

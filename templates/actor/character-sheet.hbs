@@ -1,0 +1,63 @@
+<form class="{{cssClass}} starforged" autocomplete="off">
+  <div class="starforged-dossier">
+    <div class="character-header">
+        <div>
+          <h2><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h2>
+          <h3><input name="data.callsign" type="text" value="{{data.callsign}}" placeholder="Callsign"/></h3>
+          <h3><input name="data.characteristics" type="text" value="{{data.characteristics}}" placeholder="Characteristics"/></h3>
+        </div>
+        <div>
+          {{> "systems/starforged/templates/partials/xp.hbs" }}
+        </div>
+        <div style="text-align: center; vertical-aligh: middle;">
+          <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+        </div>
+    </div>
+
+    <div class="character-stats"><center>
+      {{> "systems/starforged/templates/partials/dashboard.hbs" }}
+    </center></div>
+
+    <nav class="sheet-tabs tabs starforged-generator" data-group="primary">
+      {{!-- Default tab is specified in actor-sheet.mjs --}}
+      <a class="character-tab button-stack-button full" data-tab="legacies"><span>LEGACIES</span></a>
+      <a class="character-tab button-stack-button full" data-tab="assets"><span>ASSETS</span></a>
+      <a class="character-tab button-stack-button full" data-tab="challenges"><span>CHALLENGES</span></a>
+      <a class="character-tab button-stack-button full" data-tab="completed"><span>COMPLETED</span></a>
+      <a class="character-tab button-stack-button full" data-tab="moves"><span>MOVES</span></a>
+      <a class="character-tab button-stack-button full" data-tab="journal"><span>JOURNAL</span></a>
+      <a class="character-tab button-stack-button full" data-tab="statistics"><span>STATISTICS</span></a>
+    </nav>
+
+    <section class="sheet-body">
+      <section class="tab" data-group="primary" data-tab="legacies">
+        {{> "systems/starforged/templates/tabs/legacies.hbs" }}
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="assets">
+        {{> "systems/starforged/templates/tabs/assets.hbs" }}
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="challenges">
+        {{> "systems/starforged/templates/tabs/challenges.hbs" }}
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="completed">
+        {{> "systems/starforged/templates/tabs/completed.hbs" }}
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="moves">
+        {{> "systems/starforged/templates/tabs/moves.hbs" }}
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="journal">
+        {{> "systems/starforged/templates/tabs/journal.hbs" }}
+      </section>
+
+      <section class="tab" data-group="primary" data-tab="statistics">
+        {{> "systems/starforged/templates/tabs/statistics.hbs" }}
+      </section>
+    </section>
+  </div>
+
+</form>

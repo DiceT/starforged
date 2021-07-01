@@ -1,0 +1,51 @@
+<div>
+    <center><h4>STATISTICS</h4></center>
+    <div class="statistics">
+        <div>
+            <h3>Action Rolls</h3>
+            <h4>Total Rolls: {{data.statistics.actionRolls.rollsTotal}}</h4>
+            <h4>Average Roll Total: {{data.statistics.actionRolls.averageTotalRoll}}</h4>
+            <h4>Average d6 Roll: {{data.statistics.actionRolls.averageRoll}}</h4>
+            <h4>Average Skill Bonus: {{data.statistics.actionRolls.averageSkillBonus}}</h4>
+            <h4>Average Add Bonus: {{data.statistics.actionRolls.averageAddBonus}}</h4>
+            <h4>Ones: {{data.statistics.actionRolls.ones}} ({{data.statistics.actionRolls.onesPercentage}}%)</h4>
+            <h4>Sixes: {{data.statistics.actionRolls.sixes}} ({{data.statistics.actionRolls.sixesPercentage}}%)</h4>
+            <br>
+            <h3>Challenge Rolls vs. Action</h3>
+            <h4>Total Rolls: {{data.statistics.actionRolls.challengeRolls.rollsTotal}}</h4>
+            <h4>Average Roll: {{data.statistics.actionRolls.challengeRolls.averageRoll}}</h4>
+            <h4>Ones: {{data.statistics.actionRolls.challengeRolls.ones}} ({{data.statistics.actionRolls.challengeRolls.onesPercentage}}%)</h4>
+            <h4>Tens: {{data.statistics.actionRolls.challengeRolls.tens}} ({{data.statistics.actionRolls.challengeRolls.tensPercentage}}%)</h4>
+            <br>
+            <h3>Progress Rolls</h3>
+            <h4>Total Rolls: {{data.statistics.progressRolls.rollsTotal}}</h4>
+            <h4>Average Roll: {{data.statistics.progressRolls.averageRoll}}</h4>    
+            <br>
+            <h3>Challenge Rolls vs. Progress</h3>
+            <h4>Total Rolls: {{data.statistics.progressRolls.challengeRolls.rollsTotal}}</h4>
+            <h4>Average Roll: {{data.statistics.progressRolls.challengeRolls.averageRoll}}</h4>
+            <h4>Ones: {{data.statistics.progressRolls.challengeRolls.ones}} ({{data.statistics.progressRolls.challengeRolls.onesPercentage}}%)</h4>
+            <h4>Tens: {{data.statistics.progressRolls.challengeRolls.tens}} ({{data.statistics.progressRolls.challengeRolls.tensPercentage}}%)</h4>
+        </div>
+        <div>
+            <h3>Results</h3>
+            <h4>Opportunities (Action): {{data.statistics.results.opportunities.actionRoll}} ({{data.statistics.results.opportunities.actionRollPercentage}}%)</h4>
+            <h4>Opportunities (Progress): {{data.statistics.results.opportunities.progressRoll}} ({{data.statistics.results.opportunities.progressRollPercentage}}%)</h4>
+            <br>
+            <h4>Strong Hits (Action): {{data.statistics.results.strongHits.actionRoll}} ({{data.statistics.results.strongHits.actionRollPercentage}}%)</h4>
+            <h4>Strong Hits (Progress): {{data.statistics.results.strongHits.progressRoll}} ({{data.statistics.results.strongHits.progressRollPercentage}}%)</h4>
+            <br>
+            <h4>Weak Hits (Action): {{data.statistics.results.weakHits.actionRoll}} ({{data.statistics.results.weakHits.actionRollPercentage}}%)</h4>
+            <h4>Weak Hits (Progress): {{data.statistics.results.weakHits.progressRoll}} ({{data.statistics.results.weakHits.progressRollPercentage}}%)</h4>
+            <br>
+            <h4>Misses (Action): {{data.statistics.results.misses.actionRoll}} ({{data.statistics.results.misses.actionRollPercentage}}%)</h4>
+            <h4>Misses (Progress): {{data.statistics.results.misses.progressRoll}} ({{data.statistics.results.misses.progressRollPercentage}}%)</h4>
+            <br>
+            <h4>Perils (Action): {{data.statistics.results.perils.actionRoll}} ({{data.statistics.results.perils.actionRollPercentage}}%)</h4>
+            <h4>Perils (Progress): {{data.statistics.results.perils.progressRoll}} ({{data.statistics.results.perils.progressRollPercentage}}%)</h4>
+            <br>
+            <h4>Burn Momentum: {{data.statistics.burnMomentum}}</h4>
+            <h4>Negative Momentum: {{data.statistics.negativeMomentum}}</h4>
+        </div>
+    </div>
+</div>

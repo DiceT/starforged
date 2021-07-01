@@ -1,0 +1,53 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="starforged-dossier">
+        <div class="header">
+            <div>
+                <h2><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h2>
+                <h3><select name="data.type">
+                    {{selectOptions config.assetType selected=data.type localize=true}}
+                </select></h3>
+                <p style="margin-bottom: 2px"><input name="data.name" type="text" value="{{data.name}}" placeholder="Name"/></p>
+                <p style="margin-bottom: 2px"><input name="data.condition" type="text" value="{{data.condition}}" placeholder="Condition"/></p>
+                <p style="margin-bottom: 2px"><input name="data.special1" type="text" value="{{data.special1}}" placeholder="Special (if applicable)"/></p>
+                <p style="margin-bottom: 2px"><input name="data.special2" type="text" value="{{data.special2}}" placeholder="Special (if applicable)"/></p>
+                <div class="asset-track">
+                    <div class="button-stack-button full asset-track-enable {{#if data.track.enabled}}roll-bonus-selected{{/if}}">TRACK</div>
+                    {{#if data.track.enabled}}
+                        <div class="button-stack-button full asset-track-minus">-</div>
+                        <div>{{#assetTrack data.track.max}}{{/assetTrack}}</div>
+                        <div class="button-stack-button full asset-track-plus">+</div>
+                    {{/if}}
+                </div>
+                <div class="asset-impacts">
+                    <div class="button-stack-button full asset-battered-enable {{#if data.battered.enabled}}roll-bonus-selected{{/if}}">BATTERED</div>
+                    <div class="button-stack-button full asset-cursed-enable {{#if data.cursed.enabled}}roll-bonus-selected{{/if}}">CURSED</div>
+                    <div class="button-stack-button full asset-outofaction-enable {{#if data.outOfAction.enabled}}roll-bonus-selected{{/if}}">OUT OF ACTION</div>
+                </div>
+            </div>
+            <div class="profile-img">
+                <img src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+            </div>
+        </div>
+        <div class="details">
+            <div class="ability-header">
+                <h3>Abilities</h3>
+                <div></div>
+            </div>
+            <div class="ability-content">
+                <center><input type="checkbox" name="data.abilities.ability1.enabled" {{checked data.abilities.ability1.enabled}} id="checkbox-element-1" style="flex-grow: 0;" />
+                <label for="checkbox-element-1"><span class="indicator"></span></label></center>
+                {{editor content=data.abilities.ability1.details target="data.abilities.ability1.details" button=true owner=owner editable=editable}}
+            </div>
+            <div class="ability-content">
+                <center><input type="checkbox" name="data.abilities.ability2.enabled" {{checked data.abilities.ability2.enabled}} id="checkbox-element-2" style="flex-grow: 0;" />
+                <label for="checkbox-element-2"><span class="indicator"></span></label></center>
+                {{editor content=data.abilities.ability2.details target="data.abilities.ability2.details" button=true owner=owner editable=editable}}
+            </div>
+            <div class="ability-content">
+                <center><input type="checkbox" name="data.abilities.ability3.enabled" {{checked data.abilities.ability3.enabled}} id="checkbox-element-3" style="flex-grow: 0;" />
+                <label for="checkbox-element-3"><span class="indicator"></span></label></center>
+                {{editor content=data.abilities.ability3.details target="data.abilities.ability3.details" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+</form>
