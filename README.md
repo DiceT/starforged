@@ -1,3 +1,5 @@
+FULL README WILL BE UPLOADED SOON.
+
 Installation
 
 First Time - Set Up Tables
