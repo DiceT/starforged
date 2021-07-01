@@ -2,9 +2,9 @@
   "name": "starforged",
   "title": "Ironsworn: Starforged",
   "description": "Ironsworn: Starforged for FoundryVTT!",
-  "version": "0.01",
+  "version": "0.10",
   "minimumCoreVersion": "0.8.3",
-  "compatibleCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.8",
   "author": "Dice T",
   "esmodules": [
     "modules/starforged.mjs"
