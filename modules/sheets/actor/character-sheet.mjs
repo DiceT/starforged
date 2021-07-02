@@ -273,9 +273,21 @@ export class StarforgedCharacterSheet extends ActorSheet {
         html.find('.item-create').click(this._onItemCreate.bind(this));
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.item-delete').click(this._onItemDelete.bind(this));
+
+        html.find('.asset-track-value').click(this._onAssetTrackValue.bind(this));
     }
     /** ------------------------------------------------------------------ */
 
+    async _onAssetTrackValue(event) {
+        event.preventDefault();
+        let value = event.currentTarget.getAttribute('data-value');
+        const li = event.currentTarget.closest(".item");
+        const item = this.actor.items.get(li.dataset.itemId);
+
+        await item.update({ data: { "track": { "value": value } } } );
+    
+        return;
+    }
 
   /* -------------------------------------------- */
   /**

@@ -107,6 +107,14 @@
   width: 98%;
 }
 
+.asset-partial-track {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 4px;
+  margin: 4px 0px 8px 0px;
+  width: 98%;
+}
+
 .asset-impacts {
   display: flex;
   flex-direction: row;
@@ -115,7 +123,8 @@
   width: 98%;
 }
 
-.starforged .asset-track img {
+.starforged .asset-track img,
+.starforged .asset-partial-track img {
   margin: 2px;
   height: 20px;
   width: 20px;

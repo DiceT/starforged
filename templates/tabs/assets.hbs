@@ -7,15 +7,15 @@
                     <button type="button" class="collapsible" style="padding-left: 6px;">{{name}}</button>
                     <div class="item-details">
                         <div class="details">
-                            {{#if data.name}}
-                                <h4><input name="data.name" type="text" value="{{data.name}}" placeholder="Name"/></h4>
-                            {{/if}}
+                            {{#if data.name}}{{data.name}}{{/if}}
                             <h5>{{data.type}}</h5>
                             {{#if data.condition}}<h5>{{data.condition}}</h5>{{/if}}
                             {{#if data.special1}}<h5>{{data.special1}}</h5>{{/if}}
                             {{#if data.special2}}<h5>{{data.special2}}</h5>{{/if}}
                             {{#if data.track.enabled}}
-                                TRACK
+                                <div class="asset-partial-track">
+                                    <div>{{#assetTrack data.track}}{{/assetTrack}}</div>
+                                </div>
                             {{/if}}
                             <div class="starforged-generator">
                                 {{#if data.battered.enabled}}

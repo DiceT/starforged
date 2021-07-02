@@ -1,3 +1,8 @@
+CHANGELOG: 
+Added ability to edit the Background Vow.
+
+
+
 TO DO LIST:
 
 LEGACIES

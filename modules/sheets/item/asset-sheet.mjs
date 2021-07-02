@@ -64,14 +64,16 @@
     }
 
     async _onAssetTrackPlus (event) {
-        console.log(this.item.data.data)
-        await this.item.update({
-            data: {
-                track: {
-                    max: this.item.data.data.track.max + 1
+        if ( this.item.data.data.track.max < 8 ) {
+            await this.item.update({
+                data: {
+                    track: {
+                        max: this.item.data.data.track.max + 1,
+                        value: this.item.data.data.track.max + 1
+                    }
                 }
-            }
-        });
+            });
+        }
         return;
     }
 
@@ -80,7 +82,8 @@
             await this.item.update({
                 data: {
                     track: {
-                        max: this.item.data.data.track.max - 1
+                        max: this.item.data.data.track.max - 1,
+                        value: this.item.data.data.track.max - 1,
                     }
                 }
             }); 

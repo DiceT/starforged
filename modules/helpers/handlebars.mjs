@@ -228,17 +228,17 @@ export function initializeHandlebars() {
 
   Handlebars.registerHelper("assetTrack", function(n, content) {
     let result = "";
-    let difficulty = n;
+    let max = n.max;
+    let value = n.value;
 
-
-    for (let i = 1; i <= n; ++i) {
-      result += "<span class='asset-difficulty' data-value='" + i + "'>";
+    for (let i = 0; i <= max; ++i) {
+      result += "<span class='asset-track-value' data-value='" + i + "'>";
       result += "<img src='systems/starforged/resources/tracks/hex-";
-      if ( i <= difficulty ) {
-        result += "full.png'></span>";
+      if ( i <= value ) {
+        result += "full-" + i + ".png'></span>";
       }
       else {
-        result += "empty.png'></span>";
+        result += "empty-" + i + ".png'></span>";
       }
     }
     return result;
