@@ -2,7 +2,7 @@
   "name": "starforged",
   "title": "Ironsworn: Starforged",
   "description": "Ironsworn: Starforged for FoundryVTT!",
-  "version": "0.12",
+  "version": "0.13",
   "minimumCoreVersion": "0.8.3",
   "compatibleCoreVersion": "0.8.8",
   "author": "Dice T",
@@ -41,13 +41,6 @@
       "system": "starforged",
       "path": "./packs/tables.db",
       "entity": "RollTable"
-    },
-    {
-      "name": "macros",
-      "label": "Starforged Macros",
-      "system": "starforged",
-      "path": "./packs/macros.db",
-      "entity": "Macro"
     }
   ],
   "languages": [
@@ -62,7 +55,7 @@
   "primaryTokenAttribute": "",
   "secondaryTokenAttribute": "",
   "url": "https://github.com/DiceT/starforged",
-  "manifest": "https://raw.githubusercontent.com/DiceT/starforged/v0.12/system.json",
-  "download": "https://github.com/DiceT/starforged/archive/refs/tags/v0.12.zip",
+  "manifest": "https://raw.githubusercontent.com/DiceT/starforged/v0.13/system.json",
+  "download": "https://github.com/DiceT/starforged/archive/refs/tags/v0.13.zip",
   "license": "LICENSE.txt"
 }
