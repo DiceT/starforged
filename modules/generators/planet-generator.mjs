@@ -4,7 +4,7 @@ import { generateContent } from "./core-generator.mjs";
 
 export async function generatePlanet() {
     let planetType = await generateContent( "[ Planetary Classes ]");
-    let planetImage = "./systems/starforged/resources/planets/" + planetType + " 0" + (Math.floor(Math.random() * 4) + 1) +".png";
+    let planetImage = "./systems/starforged/resources/planets/" + planetType + " 0" + (Math.floor(Math.random() * 6) + 1) +".png";
     let content = "<p><h3>" + planetType + "</h3></p>";
 
     let sector = await game.actors.getName(await game.scenes.current.data.name);
