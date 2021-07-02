@@ -4,19 +4,23 @@
         <div class="assets">
             {{#each assets as |item id|}}
                 <div class="asset-details item" data-item-id="{{_id}}">
-                    <button type="button" class="collapsible" style="padding-left: 6px;">{{name}}</button>
-                    <div class="item-details">
+                    <button class="asset-header collapsible" type="button" style="padding-bottom: 2px;">
+                        <div style="padding-left: 6px;">{{name}}</div>
+                        <div class="a-right">
+                            {{#if data.track.enabled}}
+                                <div class="asset-partial-track">
+                                    <div>{{#assetTrack data.track}}{{/assetTrack}}</div>
+                                </div>
+                            {{/if}}
+                        </div>
+                    </button>
+                    <div class="item-details hide">
                         <div class="details">
                             {{#if data.name}}{{data.name}}{{/if}}
                             <h5>{{data.type}}</h5>
                             {{#if data.condition}}<h5>{{data.condition}}</h5>{{/if}}
                             {{#if data.special1}}<h5>{{data.special1}}</h5>{{/if}}
                             {{#if data.special2}}<h5>{{data.special2}}</h5>{{/if}}
-                            {{#if data.track.enabled}}
-                                <div class="asset-partial-track">
-                                    <div>{{#assetTrack data.track}}{{/assetTrack}}</div>
-                                </div>
-                            {{/if}}
                             <div class="starforged-generator">
                                 {{#if data.battered.enabled}}
                                     <div class="button-stack-button full progress-button asset-battered-value">BATTERED</div>

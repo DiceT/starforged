@@ -1,38 +1,12 @@
 CHANGELOG: 
 Added ability to edit the Background Vow.
-
-
+Added Asset track to character sheet Assets.
+Relocated Asset track to inside the header button so the current Health value could be seen without entering the Asset details.
 
 TO DO LIST:
 
-LEGACIES
-??????? Add ability to remove and edit Legacies.
-------- Get +10 working.
-
-IMPACTS
-------- Ability to type in Special1 and Special2.
-------- Get Impacts into its own HDB.
-
-XP
-------- Get XP into its own HDB.
-
-ASSETS
-------- Add/Remove Assets.
-------- Autosize Asset cards.
-------- Better internal spacing inside cards.
-
-CHALLENGES
-------- Ability to add/remove and edit Challenges.
-
-JOURNAL
-------- Get Journal working.
-
-STATISTICS
-------- Drop down font sizing.
-------- Get into 2 columns.
-
-LOCATIONS
-------- Get notes section working.
+ASSETS:
+Add functionality to Asset status buttons.
 
 DASHBOARD PLUS
 Get Locations working.

@@ -230,7 +230,12 @@
 
 .difficulty-track {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 50% 50%;
+}
+
+.asset-header {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .starforged-dossier .legacies {
