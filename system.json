@@ -2,7 +2,7 @@
   "name": "starforged",
   "title": "Ironsworn: Starforged",
   "description": "Ironsworn: Starforged for FoundryVTT!",
-  "version": "0.11",
+  "version": "0.12",
   "minimumCoreVersion": "0.8.3",
   "compatibleCoreVersion": "0.8.8",
   "author": "Dice T",
@@ -62,7 +62,7 @@
   "primaryTokenAttribute": "",
   "secondaryTokenAttribute": "",
   "url": "https://github.com/DiceT/starforged",
-  "manifest": "https://raw.githubusercontent.com/DiceT/starforged/v0.11/system.json",
-  "download": "https://github.com/DiceT/starforged/archive/refs/tags/v0.11.zip",
+  "manifest": "https://raw.githubusercontent.com/DiceT/starforged/v0.12/system.json",
+  "download": "https://github.com/DiceT/starforged/archive/refs/tags/v0.12.zip",
   "license": "LICENSE.txt"
 }
