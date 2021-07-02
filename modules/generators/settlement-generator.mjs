@@ -6,12 +6,14 @@ export async function generateSettlement( sectorFolderID, sectorLocation, settle
     const folder1 = "[ Settlements - Name Prefixes ]";
     const folder2 = "[ Settlements - Names ]";
     const folder3 = "[ Settlements - Name Suffixes ]";
+    const folder9 = "[ Settlements - First Looks ]";
     const folder4 = "[ Settlements - Projects ]";
     const folder5 = "[ Settlements - Troubles ]";
+    const folder10 = "[ Settlements - Initial Contacts ]";
     const folder6 = "Settlement Location";
     const folder7 = "Settlement Population - " + sectorLocation;
-    const folder8 = "Settlements - Authority";
-  
+    const folder8 = "Settlement Authority";
+    
     if ( settlementType == "Random" ) {
       settlementType = await generateContent(folder6);
     }
@@ -31,6 +33,11 @@ export async function generateSettlement( sectorFolderID, sectorLocation, settle
   
     let settlementName = settlementPrefix + await generateContent(folder2) + settlementSuffix;
   
+    content += "<p><b>First Look</b>: " + await generateContent(folder9);
+    if ( Math.floor(Math.random() * 2) == 0) {
+      content += " | " + await generateContent(folder9);
+    }
+    content += "</p>";
     content += "<p><b>Population</b>: " + await generateContent(folder7) + "</p>";
     content += "<p><b>Authority</b>: " + await generateContent(folder8) + "</p>";
     if ( Math.floor(Math.random() * 2) == 0) {
@@ -40,6 +47,7 @@ export async function generateSettlement( sectorFolderID, sectorLocation, settle
       content += "<p><b>Projects</b>: " + await generateContent(folder4, folder4) + "</p>";
     }
     content += "<p><b>Troubles</b>: " + await generateContent(folder5) + "</p>";
+    content += "<p><b>Initial Contact</b>: " + await generateContent(folder10) + "</p>";
   
     let sector = await game.actors.getName(await game.scenes.current.data.name);
     let lastKnown = await getLink(sector.id, sector.data.data.type.toLowerCase(), sector.name);

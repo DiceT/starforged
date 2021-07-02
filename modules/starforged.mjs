@@ -18,7 +18,7 @@ import { StarforgedMoveSheet } from "./sheets/item/move-sheet.mjs";
 // Helpers are all scripts, functions and other various objects that are used "behind the scenes"
 import { loadPartials } from "./helpers/load-partials.mjs";
 import { initializeHandlebars } from "./helpers/handlebars.mjs";
-import { initializeFolders } from "./helpers/initialization.mjs"
+import { initializeFolders, initializeRollTables } from "./helpers/initialization.mjs"
 
 
 
@@ -70,10 +70,12 @@ Hooks.on("init", () => {
 /*  -----------------------------------------------
 *    READY HOOK
 *   ---------------------------------------------*/
-Hooks.once("ready", function() {
+Hooks.once("ready", async() => {
     // This is reserved for things that need to happen right after Foundry fully loads (after init).
-    
-    initializeFolders();
+    await initializeFolders();
+
+    await initializeRollTables();
+    return;
 });
 
 

@@ -8,10 +8,10 @@ export async function generateDerelict( location ) {
     let lastKnown = await getLink(sector.id, sector.data.data.type.toLowerCase(), sector.name);
 
     if ( location == "Random" ) {
-        location = await generateContent("Derelicts - Location");
+        location = await generateContent("Derelict - Location");
     }
 
-    let derelictType = await generateContent("Derelicts - Type - " + location)
+    let derelictType = await generateContent("Derelict - Type - " + location)
     let derelictName = "";
     let tint;
 
