@@ -5,6 +5,9 @@ Relocated Asset track to inside the header button so the current Health value co
 
 TO DO LIST:
 
+MACROS:
+Add macro templates to Compendium.
+
 ASSETS:
 Add functionality to Asset status buttons.
 
