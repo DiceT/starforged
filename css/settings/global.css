@@ -22,8 +22,8 @@
 #chat-log .message,
 #chat-form textarea,
 #chat-controls div.roll-type-select select, 
-
-.sidebar-tab .directory-header .header-search input,
+textarea, .sidebar-tab .directory-header,
+.module-management, .directory-list, 
 #chat-form .cm-s-easymde {
   background: #33999933;
   color: #6ff;
@@ -31,7 +31,11 @@
   box-shadow: 0 0 10vw #33999933 inset;
   font-family: "Oxanium", sans-serif;
   margin: 0px;
-  padding: 0px;
+  padding: 1px;
+}
+
+.package-list, .package-title .checkbox, .package-overview label {
+  background-color: #339999;
 }
 
 .window-content select option,

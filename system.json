@@ -36,6 +36,13 @@
       "entity": "Item"
     },
     {
+      "name": "macros",
+      "label": "Starforged Macros",
+      "system": "starforged",
+      "path": "./packs/macros.db",
+      "entity": "Macro"
+    },
+    {
       "name": "tables",
       "label": "Starforged Tables",
       "system": "starforged",
