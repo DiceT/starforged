@@ -129,8 +129,10 @@ export function initializeHandlebars() {
     let actionResult = "";
     let result = "";
 
-    if ( Math.abs(m) == this.roll.terms[0].rolls[0].terms[0].total ) {
-      r = 0;
+    if ( m < 0 ) {
+      if ( Math.abs(m) == this.roll.terms[0].rolls[0].terms[0].total ) {
+        r = 0;
+      }
     }
 
     if ( r > c1 && r > c2 ) {
