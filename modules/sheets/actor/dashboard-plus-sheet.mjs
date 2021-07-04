@@ -299,13 +299,7 @@ export class StarforgedDashboardPlusSheet extends ActorSheet {
         let type = event.currentTarget.getAttribute('data-type');
         switch ( generator ) {
             case "Sector": { await generateSector(type); break; }
-            case "Settlement": {
-                let sectorFolder = game.folders.getName(game.scenes.current.data.name);
-                let sectorActor = game.actors.getName(game.scenes.current.data.name)
-                let sectorLocation = sectorActor.data.data.locationType;              
-                await generateSettlement(sectorFolder, sectorLocation, type);
-                break;
-            }
+            case "Settlement": { await generateSettlement(type); break; }
             case "Planet": { await generatePlanet(); break; }
             case "Starship": { await generateStarship(); break; }
             case "Derelict": { await generateDerelict(type); break; }

@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text&family=Carrois+Gothic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
 
 .mce-content-body {
-    font-family: "Carrois Gothic SC", sans-serif;
+    font-family: "Oxanium", sans-serif;
     color: #6ff;
+    font-size: smaller;
 }
 
 

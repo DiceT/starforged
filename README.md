@@ -9,3 +9,5 @@ Fixed a bug where positive Momentum was cancelling the roll for the results on p
 FULL README WILL BE UPLOADED SOON.
 
 In the meantime, check out the installation and tour video at https://www.youtube.com/watch?v=25jM_uhllgM.
+
+This work is based on Ironsworn: Starforged (found at www.ironswornrpg.com), created by Shawn Tomkin, and licensed for our use under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (creativecommons.org/licenses/by-nc-sa/4.0/).

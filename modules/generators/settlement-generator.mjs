@@ -1,66 +1,34 @@
 import { StarforgedActor } from "../documents/actor.mjs";
+import { rollFromFolder } from "./core-generator.mjs";
 
 
-export async function generateSettlement( sectorFolderID, sectorLocation, settlementType = "Random" ) {
-    const folder1 = "[ Settlements - Name Prefixes ]";
-    const folder2 = "[ Settlements - Names ]";
-    const folder3 = "[ Settlements - Name Suffixes ]";
-    const folder9 = "[ Settlements - First Looks ]";
-    const folder4 = "[ Settlements - Projects ]";
-    const folder5 = "[ Settlements - Troubles ]";
-    const folder10 = "[ Settlements - Initial Contacts ]";
-    const folder6 = "Settlement Location";
-    const folder7 = "Settlement Population - " + sectorLocation;
-    const folder8 = "Settlement Authority";
-    
-    if ( settlementType == "Random" ) {
-      settlementType = await generateContent(folder6);
-    }
-    let settlementImage = "./systems/starforged/resources/settlements/" + settlementType + ".png";
-  
-    let content = "<p><h3>" + settlementType + " Settlement</h3></p>";
-  
-    let settlementPrefix = await generateContent(folder1);
-    let settlementSuffix = await generateContent(folder3);
-    if ( settlementPrefix != "" ) {
-      settlementPrefix += " ";
-      settlementSuffix = "";
-    }
-    if ( settlementSuffix != "" ) {
-      settlementSuffix = " " + settlementSuffix;
-    }
-  
-    let settlementName = settlementPrefix + await generateContent(folder2) + settlementSuffix;
-  
-    content += "<p><b>First Look</b>: " + await generateContent(folder9);
-    if ( Math.floor(Math.random() * 2) == 0) {
-      content += " | " + await generateContent(folder9);
-    }
-    content += "</p>";
-    content += "<p><b>Population</b>: " + await generateContent(folder7) + "</p>";
-    content += "<p><b>Authority</b>: " + await generateContent(folder8) + "</p>";
-    if ( Math.floor(Math.random() * 2) == 0) {
-      content += "<p><b>Projects</b>: " + await generateContent(folder4) + "</p>";
-    }
-    else {
-      content += "<p><b>Projects</b>: " + await generateContent(folder4, folder4) + "</p>";
-    }
-    content += "<p><b>Troubles</b>: " + await generateContent(folder5) + "</p>";
-    content += "<p><b>Initial Contact</b>: " + await generateContent(folder10) + "</p>";
-  
+export async function generateSettlement( settlementType = "Random" ) {
     let sector = await game.actors.getName(await game.scenes.current.data.name);
-    let lastKnown = await getLink(sector.id, sector.data.data.type.toLowerCase(), sector.name);
+    let settlementPrefix = await rollFromFolder("[ Settlements - Name Prefixes ]", true);
+    let settlementName = await rollFromFolder("[ Settlements - Names ]", true);
+    let settlementSuffix = await rollFromFolder("[ Settlements - Name Suffixes ]", true);
+
+    settlementPrefix.result += settlementPrefix.result != "" ? " " : "";
+    settlementSuffix.result = settlementSuffix.result != "" ? " " + settlementSuffix.result : settlementSuffix.result;
+    settlementName.result = settlementPrefix.result + settlementName.result + settlementSuffix.result;
+
+    let result = await rollFromFolder("Settlement Location", true);
+    settlementType = settlementType === "Random" ? result.result : settlementType;
+    let settlementImage = "./systems/starforged/resources/settlements/" + settlementType + ".png";
+
+    let content = "<p><h3>" + settlementType + " Settlement</h3></p>";
+    result = await rollFromFolder("[ Settlements - First Looks ]", true);
+    content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
 
     let newSettlement = await StarforgedActor.create ({
-      name: settlementName,
+      name: settlementName.result,
       type: "location",
-      folder: sectorFolderID,
+      folder: sector.folder,
       img: settlementImage,
       data: {
         type: "Settlement",
         locationType: settlementType,
         details: content,
-        lastKnown: lastKnown
       }
     });
   

@@ -1,7 +1,11 @@
-CHANGELOG 0.16
+COMING IN 0.16
 - Added Roll Macro to Macro Compendium. This macro will roll from one random table in a folder. Just define the folder in the script by replacing [ Actions ] with the folder name.
 - Changed font color of Macro textbox to ff6666
 - Changed background of module list in order to see the text better (was unable to change font color).
+- Completely rewrote and refactored the generator scripts for much better optimization, usage efficiency, all to accommodate...
+- Reworked all location sheets to provide exploration "tools" based upon the location.
+- Incorporated Location Themes into all locations that utilize them.
+- Incorporated Oracle Arrays into all locations that utilize them.
 
 
 CHANGELOG 0.15
@@ -14,9 +18,6 @@ TO DO LIST:
 
 STATISTICS:
 Add Clear Statistics button and functionality.
-
-MACROS:
-Add macro templates to Compendium.
 
 ASSETS:
 Add functionality to Asset status buttons.
@@ -34,5 +35,3 @@ Explore other Location types to see if they could use some generation tools.
 
 CHARACTER
 Test offloading listeners and functions into their own file (same source code exists in 3 locations).
-
-

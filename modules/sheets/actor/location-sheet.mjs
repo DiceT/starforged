@@ -37,18 +37,25 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
         context.isCreature = context.data.type === "Creature" ? true : false;
         context.isDerelict = context.data.type === "Derelict" ? true : false;
         context.isPrecursor = context.data.type === "Precursor Vault" ? true : false;
+        context.isVitalWorld = context.data.locationType === "Vital World" ? true : false;
 
         context.isLocationTheme = false;
         if ( context.isPlanet || context.isSettlement || context.isStarship || context.isDerelict || context.isPrecursor ) {
             context.isLocationTheme = true;
         }
+        context.isOracleArray = false;
+        if ( context.isSettlement || context.isDerelict || context.isPrecursor ) {
+            context.isOracleArray = true;
+        }
+
 
         // Prepare location data and items
         if ( actorData.type == "location" ) {
             this._prepareLocationData(context);
         }
         
-        context.currenZone = "";
+        context.currentZone = "";
+        context.currentLocationTheme = "";
         
         return context;
     }
@@ -73,30 +80,53 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
     }
 
     async _onGenerateContent(event) {
+        let tableName = event.currentTarget.getAttribute('data-table');
+        const notes = event.currentTarget.getAttribute('data-notes');
         let content = this.object.data.data.notes != null ? this.object.data.data.notes : "";
-        const table = event.currentTarget.getAttribute('data-table');
-        let tableName = table;
+        if ( notes === "Details" ) {
+            content = this.object.data.data.details != null ? this.object.data.data.details : "";
+        }
 
-        if ( tableName === "Derelict" ) {
-            tableName += " - " + this.form[1].value + " - ";
-            tableName += event.currentTarget.getAttribute('data-type');
-        }
-        if ( tableName === "Location Theme" ) {
-            if ( this.form[2] == undefined ) {
+        switch ( tableName ) {
+            case "Derelict": {
                 tableName += " - " + this.form[1].value + " - ";
-            } else {
-                tableName += " - " + this.form[2].value + " - ";
+                tableName += event.currentTarget.getAttribute('data-type');
+                break;
             }
-            tableName += event.currentTarget.getAttribute('data-type');
-        }
-        if ( tableName === "Derelicts - Zones" ) {
-            tableName += " - " + event.currentTarget.getAttribute('data-type');
-            tableName = "[ " + tableName + "s ]";
+            case "Location Theme": {
+                tableName += this.form[2] === undefined ? " - " + this.form[1].value + " - " :
+                    " - " + this.form[2].value + " - ";
+                tableName += event.currentTarget.getAttribute('data-type');
+                break;
+            }
+            case "Derelicts - Zones": {
+                tableName += " - " + event.currentTarget.getAttribute('data-type');
+                tableName = "[ " + tableName + "s ]";
+                break;
+            }
+            case "Settlement Population": {
+                const sectorActor = game.actors.getName(game.scenes.current.data.name)
+                const sectorLocation = sectorActor.data.data.locationType;
+                tableName += " - " + sectorLocation;
+                break;
+            }
+            case "Starships - Missions": {
+                const sectorActor = game.actors.getName(game.scenes.current.data.name)
+                const sectorLocation = sectorActor.data.data.locationType;
+                tableName = "[ " + tableName + " - " + sectorLocation + " ]";
+                console.log(tableName);
+            }
+
         }
 
         let result = await rollFromFolder( tableName, false );
         content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
 
-        await this.object.update({ data: { notes: content } });
+        if ( notes === "Details" ) {
+            await this.object.update({ data: { details: content } });
+        }
+        else {
+            await this.object.update({ data: { notes: content } });
+        }
     }
 }
