@@ -1,4 +1,4 @@
-import { generateContent } from "./core-generator.mjs";
+
 
 export async function generateYourTruths() {
     let content = "";

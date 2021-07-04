@@ -2,6 +2,8 @@
  * @extends {ActorSheet}
  */
 
+import { rollFromFolder } from "../../generators/core-generator.mjs";
+
     export class StarforgedLocationSheet extends ActorSheet {
 
         /** @override */
@@ -21,30 +23,33 @@
     getData() {
         // Retrieve the data structure from the base sheet
         const context = super.getData();
-        
-        // Clone of the actor data for safe operations
         const actorData = context.actor.data;
-
-        // Add actor data to context data for easier access, and flags
         context.data = actorData.data;
         context.flags = actorData.flags;
+        context.RollData = context.actor.getRollData();
+        context.config = CONFIG.STARFORGED;
 
-        // Prepare character data and items
-        if ( actorData.type == 'character' ) {
-            // this._prepareCharacterItems(context);
-            // this._prepareCharacterData(context);
+        context.isSector = context.data.type === "Sector" ? true : false;
+        context.isPlanet = context.data.type === "Planet" ? true : false;
+        context.isSettlement = context.data.type === "Settlement" ? true : false;
+        context.isStarship = context.data.type === "Starship" ? true : false;
+        context.isNPC = context.data.type === "NPC" ? true : false;
+        context.isCreature = context.data.type === "Creature" ? true : false;
+        context.isDerelict = context.data.type === "Derelict" ? true : false;
+        context.isPrecursor = context.data.type === "Precursor Vault" ? true : false;
+
+        context.isLocationTheme = false;
+        if ( context.isPlanet || context.isSettlement || context.isStarship || context.isDerelict || context.isPrecursor ) {
+            context.isLocationTheme = true;
         }
 
         // Prepare location data and items
         if ( actorData.type == "location" ) {
-            // this._prepareLocationItems(context);
-            // this._prepareLocationData(context);
+            this._prepareLocationData(context);
         }
-
-
-        // Add roll data for TinyMCE editors
-        context.RollData = context.actor.getRollData();
-
+        
+        context.currenZone = "";
+        
         return context;
     }
 
@@ -53,96 +58,45 @@
      * 
      * @return {undefined}
      */
-    _prepareCharacterItems(context) {
-        // Initialize containers
-        const legacies = [];
-        const assets = [];
-        const openChallenges = [];
-        const completedChallenges = [];
-
-        // Iterate through items and assign them to containers
-        for ( let item of context.items ){
-            item.img = item.img || DEFAULT_TOKEN;
-            if ( item.type === 'legacy' ) {
-                legacies.push(item);
-            }
-            else if ( item.type === 'asset' ) {
-                assets.push(item);
-            }
-            else if ( item.type === 'challenge' && item.data.completed === false ) {
-                openChallenges.push(item);
-            }
-            else if ( item.type === 'challenge' && item.data.completed === true ) {
-                completedChallenges.push(item);
-            }
-        }
-
-        // Assign and return
-        context.legacies = legacies;
-        context.assets = assets;
-        context.openChallenges = openChallenges;
-        context.completedChallenges = completedChallenges;
-    }
-
-    /**
-     * @param {Object} actorData to prepare
-     * 
-     * @return {undefined}
-     */
-    _prepareCharacterData(context) {
-
-    }
-
-    /**
-     * @param {Object} actorData to prepare
-     * 
-     * @return {undefined}
-     */
      _prepareLocationData(context) {
-         // Initialize containers
-        const planets = [];
-        const deepSpacesettlements = [];
-        const orbitalSettlements = [];
-        const planetsideSettlements = [];
-        const npcs = [];
-
-        for ( let actor of context.actors ) {
-            actor.img = actor.img || DEFAULT_TOKEN;
-            if ( actor.type === 'location' && actor.data.type === 'Planet' ) {
-                planets.push(actor);
-            }
-            else if ( actor.type === 'location' && actor.data.type === 'Deep Space' ) {
-                deepSpacesettlements.push(actor);
-            }
-            else if ( actor.type === 'location' && actor.data.type === 'Orbital' ) {
-                orbitalSettlements.push(actor);
-            }
-            else if ( actor.type === 'location' && actor.data.type === 'Planetside' ) {
-                planetsideSettlements.push(actor);
-            }
-            else if ( actor.type === 'location' && actor.data.type === 'NPC' ) {
-                npcs.push(actor);
-            }
-        }
-
-        // Assign and return
-        context.planets = planets;
-        context.deepSpacesettlements = deepSpacesettlements;
-        context.orbitalSettlements = orbitalSettlements;
-        context.planetsideSettlements = planetsideSettlements;
-        context.npcs = npcs;
     }
-
-    /**
-     * @param {Object} actorData to prepare
-     * 
-     * @return {undefined}
-     */
-     _prepareLocationItems(context) {
-
-    }    
-    
     /** ------------------------------------------------------------------ */
 
+    /** ------------------------------------------------------------------ */
+    /** @override */
+    activateListeners(html) {
+        super.activateListeners(html);
+        
+        html.find('.generate-content').click(this._onGenerateContent.bind(this));
 
+
+    }
+
+    async _onGenerateContent(event) {
+        let content = this.object.data.data.notes != null ? this.object.data.data.notes : "";
+        const table = event.currentTarget.getAttribute('data-table');
+        let tableName = table;
+
+        if ( tableName === "Derelict" ) {
+            tableName += " - " + this.form[1].value + " - ";
+            tableName += event.currentTarget.getAttribute('data-type');
+        }
+        if ( tableName === "Location Theme" ) {
+            if ( this.form[2] == undefined ) {
+                tableName += " - " + this.form[1].value + " - ";
+            } else {
+                tableName += " - " + this.form[2].value + " - ";
+            }
+            tableName += event.currentTarget.getAttribute('data-type');
+        }
+        if ( tableName === "Derelicts - Zones" ) {
+            tableName += " - " + event.currentTarget.getAttribute('data-type');
+            tableName = "[ " + tableName + "s ]";
+        }
+
+        let result = await rollFromFolder( tableName, false );
+        content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+
+        await this.object.update({ data: { notes: content } });
+    }
 }

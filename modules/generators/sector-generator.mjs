@@ -1,36 +1,25 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-import { generateContent } from "./core-generator.mjs";
+import { rollFromFolder } from "./core-generator.mjs";
 
 export async function generateSector( sectorLocation = "Random" ) {
-    let content = "";
-    let sectorName = "Please Rename";
+    let results = await rollFromFolder( "[ Sectors - Name Prefixes ]", true );
+    let sectorName = results.result;
+    results = await rollFromFolder( "[ Sectors - Name Suffixes ]", true );
+    sectorName += " " + results.result;
+    results = await rollFromFolder("Sector Location", true);
+    sectorLocation = sectorLocation === "Random" ? results.result : sectorLocation;
 
-    console.log(sectorLocation);
+    let content = "<h3><p><b>" + sectorLocation + " Sector</b></p></h3>";
 
-    sectorName = await generateContent(
-        "[ Sectors - Name Prefixes ]", 
-        "[ Sectors - Name Suffixes ]", 
-        false
-    );
-    if ( sectorLocation === "Random" ) {
-        sectorLocation = await generateContent("Sector Location");
-    }
+    results = await rollFromFolder("[ Stellar Objects ]", true);
+    content += "<p><b>" + results.prefix + "</b>: " + results.result;
 
-    console.log(sectorLocation);
-
-    content += "<p><b>Stellar Object</b>: " + await generateContent( "[ Stellar Objects ]" ) + "</p>";
-    content += "<p><b>Sector Trouble</b>: " + await generateContent( "[ Sector Troubles ]" ) + "</p>";
-    content += "<p><b>Spaceborne Peril</b>: " + await generateContent( "[ Spaceborne Perils ]" ) + "</p>";
-    content += "<p><b>Spaceborne Opportunity</b>: " + await generateContent( "[ Spaceborne Opportunities ]" ) + "</p>";
-    
-    // A new folder must still be generated
     let sectorFolder = await Folder.create({
         name: sectorName, 
         type: "Actor", 
         parent: null
     });
 
-    // A new sector must still be generated
     await StarforgedActor.create({ 
         name: sectorName,
         type: "location",
@@ -39,14 +28,12 @@ export async function generateSector( sectorLocation = "Random" ) {
         data: {
             type: "Sector",
             details: content,
-            locationType: sectorLocation,
-            lastKnown: sectorLocation
+            locationType: sectorLocation
         }
     });
 
     let background = "Background-Stars-0" + Math.floor(Math.random() * 10 ) + ".png";
     
-    // A new scene must still be generated
     if ( game.scenes.getName(sectorName) == undefined ) {
         await Scene.create( {
             name: sectorName,

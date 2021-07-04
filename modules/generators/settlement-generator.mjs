@@ -1,6 +1,5 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-import { getLink } from "./core-generator.mjs";
-import { generateContent } from "./core-generator.mjs";
+
 
 export async function generateSettlement( sectorFolderID, sectorLocation, settlementType = "Random" ) {
     const folder1 = "[ Settlements - Name Prefixes ]";
@@ -58,7 +57,8 @@ export async function generateSettlement( sectorFolderID, sectorLocation, settle
       folder: sectorFolderID,
       img: settlementImage,
       data: {
-        type: settlementType,
+        type: "Settlement",
+        locationType: settlementType,
         details: content,
         lastKnown: lastKnown
       }

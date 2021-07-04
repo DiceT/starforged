@@ -1,5 +1,4 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-import { generateContent, getLink } from "./core-generator.mjs";
 
 export async function generateStarship() {
     let starshipName = await generateContent( "[ Starships - Names ]" );

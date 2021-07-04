@@ -1,6 +1,5 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-import { getLink } from "./core-generator.mjs";
-import { generateContent } from "./core-generator.mjs";
+
 
 
 export async function generateDerelict( location ) {
@@ -33,15 +32,9 @@ export async function generateDerelict( location ) {
         tint = "#ffff66";
     }
     
-    let content = "<p><h3>" + derelictType + " - " + location + "</h3></p>";
+    let content = "<p><h3>Derelict " + derelictType + " - " + location + "</h3></p>";
     content += "<p><b>Condition</b>: " + await generateContent("[ Derelicts - Conditions ]") + "</p>";
     content += "<p><b>Outer First Look</b>: " + await generateContent("[ Derelicts - Outer First Looks ]") + "</p>";
-    if ( Math.floor(Math.random() * 2 ) == 0 ) {
-        content += "<p><b>Inner First Look</b>: " + await generateContent("[ Derelicts - Inner First Looks ]") + "</p>";
-    }
-    else {
-        content += "<p><b>Inner First Look</b>: " + await generateContent("[ Derelicts - Inner First Looks ]", "[ Derelicts - Inner First Looks ]") + "</p>";
-    }
     content += "<p><i>It is recommended to create a new scene so you can explore the derelict with the provided tools and the ability to flowchart/map your progress.</i></p>";
 
     let derelictImage = "./systems/starforged/resources/settlements/Derelict - " + location +".png";

@@ -33,6 +33,26 @@ STARFORGED.moveType = {
   fate:           'Fate'
 };
 
+STARFORGED.derelictZone = {
+  Access:         'Access',
+  Community:      'Community',
+  Engineering:    'Engineering',
+  Living:         'Living',
+  Medical:        'Medical',
+  Operations:     'Operations',
+  Production:     'Production',
+  Research:       'Research'
+}
+
+STARFORGED.locationTheme = {
+  Chaotic:        'Chaotic',
+  Fortified:      'Fortified',
+  Haunted:        'Haunted',
+  Infested:       'Infested',
+  Inhabited:      'Inhabited',
+  Ruined:         'Ruined',
+  Sacred:         'Sacred'
+}
 
 /*
  STARFORGED.sectorLocations = {

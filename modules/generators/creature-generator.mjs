@@ -1,6 +1,5 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-import { getLink } from "./core-generator.mjs";
-import { generateContent } from "./core-generator.mjs";
+
 
 export async function generateCreature() {
     let sector = await game.actors.getName(await game.scenes.current.data.name);

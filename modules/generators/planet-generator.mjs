@@ -1,6 +1,4 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-import { getLink } from "./core-generator.mjs";
-import { generateContent } from "./core-generator.mjs";
 
 export async function generatePlanet() {
     let planetType = await generateContent( "[ Planetary Classes ]");
@@ -67,7 +65,7 @@ export async function generatePlanet() {
     folder: sector.folder,
     img: planetImage,
     data: {
-      type: "planet",
+      type: "Planet",
       locationType: planetType,
       details: content,
       lastKnown: lastKnown

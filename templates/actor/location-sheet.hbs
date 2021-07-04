@@ -3,9 +3,55 @@
         <div class="header">
             <div>
                 <h2><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h2>            
-                {{#if data.lastKnown}}
-                    <h3>{{{enrichHTML data.lastKnown}}}</h3>
+                {{#if isSector}}
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" data-table="[ Space Sightings - {{data.locationType}} ]">Sighting</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="[ Sector Troubles ]">Trouble</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="[ Spaceborne Perils ]">Peril</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 30%" data-table="[ Spaceborne Opportunities ]">Opportunity</div>
+                    </div>                    
                 {{/if}}
+
+                {{#if isPlanet}}
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="{{data.locationType}} - Planetside Feature">Planetside Feature</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="{{data.locationType}} - Life">Life</div>
+                    </div>                    
+                {{/if}}
+
+                {{#if isDerelict}}
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="Derelicts - Zones" data-type="{{data.locationType}}">New Zone</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="[ Derelicts - Inner First Looks ]">Inner First Look</div>
+                    </div>                    
+                    <label style="font-size: xx-small; padding-top: 1px; padding-bottom: 1px; margin: 0;">DERELICT ZONE</label>
+                    <h3 style="margin: 0;"><select id="derelict-zone" name="data.currentZone">
+                        {{selectOptions config.derelictZone selected=data.currentZone}}
+                    </select></h3>
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" data-table="Derelict" data-type="Area">Area</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="Derelict" data-type="Feature">Feature</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="Derelict" data-type="Peril">Peril</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="Derelict" data-type="Opportunity">Opportunity</div>
+                    </div>                    
+                {{/if}}
+
+                {{#if isLocationTheme}}
+                    <label style="font-size: xx-small; padding-top: 1px; padding-bottom: 1px; margin: 0;">LOCATION THEME</label>
+                    <h3 style="margin: 0;"><select id="location-theme">
+                        {{selectOptions config.locationTheme}}
+                    </select></h3>
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="Location Theme" data-type="Feature">Feature</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="Location Theme" data-type="Peril">Peril</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="Location Theme" data-type="Opportunity">Opportunity</div>
+                    </div>                    
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button oracle-array" style="width: 50%">Explore - Oracle Array</div>
+                        <div class="button-stack-button full progress-button oracle-array" style="width: 50%" data-table="">Trouble - Oracle Array</div>
+                    </div>                    
+                {{/if}}
+                
             </div>
             <div style="text-align: center; vertical-aligh: middle;">
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
@@ -22,3 +68,4 @@
         </div>
     </div>
 </form>
+
