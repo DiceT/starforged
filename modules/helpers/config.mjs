@@ -44,6 +44,11 @@ STARFORGED.derelictZone = {
   Research:       'Research'
 }
 
+STARFORGED.precursorZone = {
+  Interior:       'Interior',
+  Sanctum:        'Sanctum'
+}
+
 STARFORGED.locationTheme = {
   Chaotic:        'Chaotic',
   Fortified:      'Fortified',

@@ -44,7 +44,7 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
             context.isLocationTheme = true;
         }
         context.isOracleArray = false;
-        if ( context.isSettlement || context.isDerelict || context.isPrecursor ) {
+        if ( context.isDerelict || context.isPrecursor ) {
             context.isOracleArray = true;
         }
 
@@ -75,7 +75,7 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
         super.activateListeners(html);
         
         html.find('.generate-content').click(this._onGenerateContent.bind(this));
-
+        html.find('.oracle-array').click(this._onOracleArray.bind(this));
 
     }
 
@@ -99,11 +99,6 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
                 tableName += event.currentTarget.getAttribute('data-type');
                 break;
             }
-            case "Derelicts - Zones": {
-                tableName += " - " + event.currentTarget.getAttribute('data-type');
-                tableName = "[ " + tableName + "s ]";
-                break;
-            }
             case "Settlement Population": {
                 const sectorActor = game.actors.getName(game.scenes.current.data.name)
                 const sectorLocation = sectorActor.data.data.locationType;
@@ -122,11 +117,75 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
         let result = await rollFromFolder( tableName, false );
         content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
 
+        if ( tableName.includes("Derelicts - Zones") ) {
+            await this.object.update({ data: {currentZone: result.result} });
+        }
+        else if ( tableName === "[ Location Themes - Types ]" ) {
+            let pointer = result.result.indexOf("-");
+            await this.object.update({ data: {currentLocationTheme: result.result.substring(0, pointer - 1 )} });
+        }
+
         if ( notes === "Details" ) {
             await this.object.update({ data: { details: content } });
         }
         else {
             await this.object.update({ data: { notes: content } });
         }
+    }
+
+    async _onOracleArray (event) {
+        let array = event.currentTarget.getAttribute('data-array');
+        let roll = await new Roll("1d100").roll().result;
+        let content = this.object.data.data.notes != null ? this.object.data.data.notes : "";
+        let tableName;
+
+        switch ( array ) {
+            case "Explore": {
+                if ( roll >= 1 && roll <= 20 ) {
+                    tableName = "Location Theme - " + this.object.data.data.currentLocationTheme + " - Feature";
+                } 
+                else if ( roll >= 21 && roll <= 80 ) {
+                    tableName = this.object.data.data.type === "Derelict" ?
+                        "Derelict - " + this.object.data.data.currentZone + " - Feature" :
+                        "[ Precursor Vaults - " + this.object.data.data.currentZone + " Features ]";
+                }
+                else if ( roll >= 81 && roll <= 100 ) {
+                    tableName = "Descriptor + Focus";
+                }
+                content += "<p><b>Exploring the " + this.object.data.data.currentLocationTheme + " " + this.object.data.data.currentZone + "</b>: ";
+                break;
+            }
+            case "Trouble": {
+                if ( roll >= 1 && roll <= 15 ) {
+                    tableName = "Ask the Oracle - Pay the Price";
+                } 
+                else if ( roll >= 16 && roll <= 50 ) {
+                    tableName = "Location Theme - " + this.object.data.data.currentLocationTheme + " - Peril";
+                }
+                else if ( roll >= 51 && roll <= 85 ) {
+                    tableName = this.object.data.data.type === "Derelict" ?
+                        "Derelict - " + this.object.data.data.currentZone + " - Peril" :
+                        "[ Precursor Vaults - " + this.object.data.data.currentZone + " Perils ]";
+                }
+                else if ( roll >= 86 && roll <= 100 ) {
+                    tableName = "[ Story Complications ]";
+                }
+                content += "<p><b>Trouble in the " + this.object.data.data.currentLocationTheme + " " + this.object.data.data.currentZone + "</b>: ";
+                break;
+            }
+        }
+        console.log(roll);
+
+        if ( tableName === "Descriptor + Focus" ) {
+            let result = await rollFromFolder( "[ Descriptors ]", false );
+            content += "[D+F] " + result.result + " + ";
+            result = await rollFromFolder( "[ Foci ]", false );
+            content += result.result + "</p>";
+        }
+        else {
+            let result = await rollFromFolder( tableName, false );
+            content += result.result + "</p>";
+        }
+        await this.object.update({ data: { notes: content } });
     }
 }

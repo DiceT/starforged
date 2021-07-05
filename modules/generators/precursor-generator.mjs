@@ -1,29 +1,32 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-
+import { rollFromFolder } from "./core-generator.mjs";
 
 export async function generatePrecursor( location ) {
     let sector = await game.actors.getName(await game.scenes.current.data.name);
-    let lastKnown = await getLink(sector.id, sector.data.data.type.toLowerCase(), sector.name);
+    let result;
 
-    if ( location == "Random" ) {
-        location = await generateContent("Precursor Vault - Location");
+    if ( location === "Random" ) {
+        result = await rollFromFolder("Precursor Vault - Location", true);
+        location = result.result;
     }
 
-    let content = "</p><b>Scale</b>: " + await generateContent("Precursor Vault - Scale") + "</p>";
-    content += "</p><b>Form</b>: " + await generateContent("Precursor Vault - Form") + "</p>";
-    content += "</p><b>Shape</b>: " + await generateContent("Precursor Vault - Shape") + "</p>";
-    content += "</p><b>Material</b>: " + await generateContent("Precursor Vault - Material") + "</p>";
-    content += "</p><b>Outer First Look</b>: " + await generateContent("[ Precursor Vaults - Outer First Looks ]");
+    result = await rollFromFolder("Precursor Vault - Scale", true);
+    let content = "</p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+    result = await rollFromFolder("Precursor Vault - Form", true);
+    content += "</p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+    result = await rollFromFolder("Precursor Vault - Shape", true);
+    content += "</p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+    result = await rollFromFolder("Precursor Vault - Material", true);
+    content += "</p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+    result = await rollFromFolder("[ Precursor Vaults - Outer First Looks ]", true);
+    content += "</p><b>" + result.prefix + "</b>: " + result.result;
     if ( Math.floor(Math.random() * 2 ) == 0 ) { 
-        content += " | " + await generateContent("[ Precursor Vaults - Outer First Looks ]") + "</p>";
+        result = await rollFromFolder("[ Precursor Vaults - Outer First Looks ]", true);
+        content += " | " + result.result;
     }
     content += "</p>";
-    content += "</p><b>Inner First Look</b>: " + await generateContent("[ Precursor Vaults - Inner First Looks ]");
-    if ( Math.floor(Math.random() * 2 ) == 0 ) { 
-        content += " | " + await generateContent("[ Precursor Vaults - Inner First Looks ]") + "</p>";
-    }
-    content += "</p>";
-    content += "<p><i>It is recommended to create a new scene so you can explore the derelict with the provided tools and the ability to flowchart/map your progress.</i></p>";
+
+    let notes = "<p><i>It is recommended to create a new scene so you can explore the derelict with the provided tools and the ability to flowchart/map your progress.</i></p>";
 
     let precursorImage = "./systems/starforged/resources/settlements/Precursor Vault - " + location +".png";
     let derelictName = "Precursor Vault - " + location;
@@ -37,7 +40,7 @@ export async function generatePrecursor( location ) {
           type: "Precursor Vault",
           locationType: location,
           details: content,
-          lastKnown: lastKnown
+          notes: notes
         }
     });
 

@@ -56,8 +56,8 @@
 
                 {{#if isDerelict}}
                     <div class="starforged-generator" style="margin: 1px;">
-                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="Derelicts - Zones" data-type="{{data.locationType}}" data-notes="Notes">New Zone</div>
-                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="[ Derelicts - Inner First Looks ]" data-notes="Notes">Inner First Look</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="[ Derelicts - Zones - {{data.locationType}}s ]" data-notes="Notes">New Zone</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="[ Derelicts - Inner First Looks ]" data-notes="Details">Inner First Look</div>
                     </div>                    
                     <label style="font-size: xx-small; padding-top: 1px; padding-bottom: 1px; margin: 0;">DERELICT ZONE</label>
                     <h3 style="margin: 0;"><select id="derelict-zone" name="data.currentZone">
@@ -71,22 +71,39 @@
                     </div>                    
                 {{/if}}
 
+                {{#if isPrecursor}}
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="[ Precursor Vaults - Inner First Looks ]" data-notes="Details">Inner First Look</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 50%" data-table="[ Precursor Vaults - Purposes ]" data-notes="Details">Purpose</div>
+                    </div>                    
+                    <label style="font-size: xx-small; padding-top: 1px; padding-bottom: 1px; margin: 0;">DERELICT ZONE</label>
+                    <h3 style="margin: 0;"><select id="derelict-zone" name="data.currentZone">
+                        {{selectOptions config.precursorZone selected=data.currentZone}}
+                    </select></h3>
+                    <div class="starforged-generator" style="margin: 1px;">
+                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="[ Precursor Vaults - {{data.currentZone}} Features ]" data-notes="Notes">Feature</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="[ Precursor Vaults - {{data.currentZone}} Perils ]" data-notes="Notes">Peril</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="[ Precursor Vaults - {{data.currentZone}} Opportunities ]" data-notes="Notes">Opportunity</div>
+                    </div>                    
+                {{/if}}
+
                 {{#if isLocationTheme}}
                     <label style="font-size: xx-small; padding-top: 1px; padding-bottom: 1px; margin: 0;">LOCATION THEME</label>
                     <h3 style="margin: 0;"><select id="location-theme" name="data.currentLocationTheme">
                         {{selectOptions config.locationTheme selected=data.currentLocationTheme}}
                     </select></h3>
                     <div class="starforged-generator" style="margin: 1px;">
-                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="Location Theme" data-type="Feature" data-notes="Details">Feature</div>
-                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="Location Theme" data-type="Peril" data-notes="Notes">Peril</div>
-                        <div class="button-stack-button full progress-button generate-content" style="width: 33%" data-table="Location Theme" data-type="Opportunity" data-notes="Notes">Opportunity</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 30%" data-table="[ Location Themes - Types ]" data-notes="Details">New Theme</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="Location Theme" data-type="Feature" data-notes="Details">Feature</div>
+                        <div class="button-stack-button full progress-button generate-content" data-table="Location Theme" data-type="Peril" data-notes="Notes">Peril</div>
+                        <div class="button-stack-button full progress-button generate-content" style="width: 30%" data-table="Location Theme" data-type="Opportunity" data-notes="Notes">Opportunity</div>
                     </div>                    
                 {{/if}}
 
                 {{#if isOracleArray}}
                     <div class="starforged-generator" style="margin: 1px;">
-                        <div class="button-stack-button full progress-button oracle-array" style="width: 50%" data-notes="Notes">Explore - Oracle Array</div>
-                        <div class="button-stack-button full progress-button oracle-array" style="width: 50%" data-table="" data-notes="Notes">Trouble - Oracle Array</div>
+                        <div class="button-stack-button full progress-button oracle-array" style="width: 50%" data-array="Explore" data-notes="Notes">Explore - Oracle Array</div>
+                        <div class="button-stack-button full progress-button oracle-array" style="width: 50%" data-array="Trouble" data-notes="Notes">Trouble - Oracle Array</div>
                     </div>                    
                 {{/if}}
 
