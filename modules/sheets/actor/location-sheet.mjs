@@ -54,8 +54,10 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
             this._prepareLocationData(context);
         }
         
-        context.currentZone = "";
-        context.currentLocationTheme = "";
+        context.currentZone = context.isDerelict ? "Access" : "Interior";
+        context.currentLocationTheme = "Chaotic";
+
+        
         
         return context;
     }
@@ -139,20 +141,23 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
         let content = this.object.data.data.notes != null ? this.object.data.data.notes : "";
         let tableName;
 
+        let currentZone = this.form[1].value;
+        let currentTheme = this.form[2].value;
+        
         switch ( array ) {
             case "Explore": {
                 if ( roll >= 1 && roll <= 20 ) {
-                    tableName = "Location Theme - " + this.object.data.data.currentLocationTheme + " - Feature";
+                    tableName = "Location Theme - " + currentTheme + " - Feature";
                 } 
                 else if ( roll >= 21 && roll <= 80 ) {
                     tableName = this.object.data.data.type === "Derelict" ?
-                        "Derelict - " + this.object.data.data.currentZone + " - Feature" :
-                        "[ Precursor Vaults - " + this.object.data.data.currentZone + " Features ]";
+                        "Derelict - " + currentZone + " - Feature" :
+                        "[ Precursor Vaults - " + currentZone + " Features ]";
                 }
                 else if ( roll >= 81 && roll <= 100 ) {
                     tableName = "Descriptor + Focus";
                 }
-                content += "<p><b>Exploring the " + this.object.data.data.currentLocationTheme + " " + this.object.data.data.currentZone + "</b>: ";
+                content += "<p><b>Exploring the " + currentTheme + " " + currentZone + "</b>: ";
                 break;
             }
             case "Trouble": {
@@ -160,17 +165,17 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
                     tableName = "Ask the Oracle - Pay the Price";
                 } 
                 else if ( roll >= 16 && roll <= 50 ) {
-                    tableName = "Location Theme - " + this.object.data.data.currentLocationTheme + " - Peril";
+                    tableName = "Location Theme - " + currentTheme + " - Peril";
                 }
                 else if ( roll >= 51 && roll <= 85 ) {
                     tableName = this.object.data.data.type === "Derelict" ?
-                        "Derelict - " + this.object.data.data.currentZone + " - Peril" :
-                        "[ Precursor Vaults - " + this.object.data.data.currentZone + " Perils ]";
+                        "Derelict - " + currentZone + " - Peril" :
+                        "[ Precursor Vaults - " + currentZone + " Perils ]";
                 }
                 else if ( roll >= 86 && roll <= 100 ) {
                     tableName = "[ Story Complications ]";
                 }
-                content += "<p><b>Trouble in the " + this.object.data.data.currentLocationTheme + " " + this.object.data.data.currentZone + "</b>: ";
+                content += "<p><b>Trouble in the " + currentTheme + " " + currentZone + "</b>: ";
                 break;
             }
         }

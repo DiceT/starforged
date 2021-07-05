@@ -1,4 +1,4 @@
-v0.17
+v0.18
 THIS UPDATE REQUIRES ALL OF THE TABLES TO BE REINSTALLED
 : Please DELETE ALL on your Starforged folders in the tables section (right click the folder --> Delete All --> Yes ). Then REFRESH (F5).
 : If you have already added custom tables, please put those in a safe location.
