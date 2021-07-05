@@ -1,26 +1,30 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-
+import { rollFromFolder } from "./core-generator.mjs";
 
 export async function generateCreature() {
     let sector = await game.actors.getName(await game.scenes.current.data.name);
-    let lastKnown = await getLink(sector.id, sector.data.data.type.toLowerCase(), sector.name);
 
-    let environment = await generateContent("Creatures - Environment");
-    let scale = await generateContent("Creatures - Scale");
-    if ( scale == "Ultra-scale") { scale = await generateContent("Creatures - Ultra-Scale"); }
-    let basicForm = await generateContent("Creatures - Basic Form - " + environment);
+    let result = await rollFromFolder( "Creatures - Environment", true );
+    let content = "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+    let environment = result.result;
 
-    let creatureName = basicForm + " - " + environment;
-    let content = "<p><b>Environment</b>: " + environment + "</p>";
-    content += "<p><b>Basic Form</b>: " + basicForm + "</p>";
-    content += "<p><b>First Look</b>: " + await generateContent("[ Creatures - First Looks ]");
-    content += " | " + await generateContent("[ Creatures - First Looks ]") + "</p>";
-    content += "<p><b>Behavior</b>: " + await generateContent("[ Creatures - Encountered Behaviors ]") + "</p>";
-    content += "<p><b>Revealed Aspect</b>: " + await generateContent("[ Creatures - Revealed Aspects ]");
-    if ( Math.floor(Math.random() * 2 ) == 0 ) {
-        content += " | " + await generateContent("[ Creatures - Revealed Aspects ]");
+    result = await rollFromFolder( "Creatures - Basic Form - " + environment, true );
+    content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+    let creatureName = result.result + " - " + environment;
+
+    result = await rollFromFolder( "Creatures - Scale", true );
+    if ( result.result === "Ultra-scale" ) {
+        result = await rollFromFolder( "Creatures - Ultra-Scale", true );
     }
-    content += "</p>";
+    content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
+
+    result = await rollFromFolder( "[ Creatures - First Looks ]", true );
+    content += "<p><b>" + result.prefix + "</b>: " + result.result;
+    result = await rollFromFolder( "[ Creatures - First Looks ]", true );
+    content += " | " + result.result + "</p>";
+
+    result = await rollFromFolder( "[ Creatures - Encountered Behaviors ]", true );
+    content += "<p><b>" + result.prefix + "</b>: " + result.result + "</p>";
 
     await StarforgedActor.create ({
         name: creatureName,
@@ -28,8 +32,7 @@ export async function generateCreature() {
         folder: sector.data.folder,
         data: {
           type: "Creature",
-          details: content,
-          lastKnown: lastKnown
+          details: content
         }
     });
 

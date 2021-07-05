@@ -10,7 +10,7 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
         static get defaultOptions() {
             return mergeObject(super.defaultOptions, {
                 template: "systems/starforged/templates/actor/location-sheet.hbs",
-                width: 400,
+                width: 450,
                 height: 600,
                 resizable: false,
                 tabs: []

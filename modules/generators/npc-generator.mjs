@@ -1,29 +1,19 @@
 import { StarforgedActor } from "../documents/actor.mjs";
-
+import { rollFromFolder } from "./core-generator.mjs";
 
 export async function generateNPC() {
     let sector = await game.actors.getName(await game.scenes.current.data.name);
-    let lastKnown = await getLink(sector.id, sector.data.data.type.toLowerCase(), sector.name);
 
-    let characterName = await generateContent("[ Characters - Given Names ]", "[ Characters - Family Names ]", false);
-    let content = "";
+    let result = await rollFromFolder("[ Characters - Given Names ]", true );
+    let characterName = result.result;
+    result = await rollFromFolder("[ Characters - Family Names ]", true );
+    characterName += " " + result.result;    
 
-    content += "<p><b>Callsign</b>: " + await generateContent("[ Characters - Callsigns ]");
-    content += "<p><b>First Look</b>: " + await generateContent("[ Characters - First Looks ]", "[ Characters - First Looks ]");
+    result = await rollFromFolder("[ Characters - First Looks ]", true );
+    let content = "<p><b>" + result.prefix + "</b>: " + result.result;
     if ( Math.floor(Math.random() * 2 ) == 0 ) {
-        content += " | " + await generateContent("[ Characters - First Looks ]");
-    }
-    content += "</p>";
-    
-    content += "<p><b>Disposition</b>: " + await generateContent("[ Characters - Dispositions ]");
-    content += "<p><b>Character Role</b>: " + await generateContent("[ Characters - Roles ]");
-    content += "<p><b>Character Goal</b>: " + await generateContent("[ Characters - Goals ]");
-    content += "<p><b>Revealed Aspect</b>: " + await generateContent("[ Characters - Revealed Aspects ]");
-    if ( Math.floor(Math.random() * 2 ) == 0 ) {
-        content += " | " + await generateContent("[ Characters - Revealed Aspects ]");
-    }
-    if ( Math.floor(Math.random() * 2 ) == 0 ) {
-        content += " | " + await generateContent("[ Characters - Revealed Aspects ]");
+        result = await rollFromFolder("[ Characters - First Looks ]", true );
+        content += " | " + result.result;
     }
     content += "</p>";
 
@@ -33,8 +23,7 @@ export async function generateNPC() {
         folder: sector.data.folder,
         data: {
           type: "NPC",
-          details: content,
-          lastKnown: lastKnown
+          details: content
         }
     });
       

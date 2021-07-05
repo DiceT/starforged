@@ -16,25 +16,23 @@ export async function rollFromFolder( folder, silent = false ) {
           results.result += roll.results[0].text;
     }
     results.prefix = table.data.description;
-
     results = await validateResults( results, folder, silent );
-
     return results;
 }
 
 export async function validateResults( results, folder, silent = false ) {
     switch ( results.result ) {
         case "Action + Theme": {
-            let result = await rollFromFolder( "[ Actions ]");
+            let result = await rollFromFolder( "[ Actions ]", silent );
             results.result = "[A+T] " + result.result + " + ";
-            result = await rollFromFolder("[ Themes ]");
+            result = await rollFromFolder( "[ Themes ]", silent );
             results.result += result.result;
             break;
         }
         case "Descriptor + Focus": {
-            let result = await rollFromFolder( "[ Descriptors ]");
+            let result = await rollFromFolder( "[ Descriptors ]", silent );
             results.result = "[D+F] " + result.result + " + ";
-            result = await rollFromFolder("[ Foci ]");
+            result = await rollFromFolder( "[ Foci ]", silent );
             results.result += result.result;
             break;
         }

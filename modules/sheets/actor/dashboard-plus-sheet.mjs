@@ -21,7 +21,7 @@ export class StarforgedDashboardPlusSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             template: "systems/starforged/templates/actor/dashboard-plus-sheet.hbs",
             width: 674,
-            height: 278,
+            height: 283,
             resizable: false,
             tabs: []
         });
@@ -145,7 +145,8 @@ export class StarforgedDashboardPlusSheet extends ActorSheet {
     async _onRollFromFolder(event) {
         let folder1 = event.currentTarget.getAttribute('data-folder1');
         let folder2 = event.currentTarget.getAttribute('data-folder2');
-        rollFromFolder(folder1, folder2);
+        rollFromFolder(folder1, false);
+        if ( folder2 ) { rollFromFolder(folder2, false); }
     }
 
     /** ------------------------------------------------------------------ */

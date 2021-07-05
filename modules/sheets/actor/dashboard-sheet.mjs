@@ -12,7 +12,7 @@ export class StarforgedDashboardSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             template: "systems/starforged/templates/actor/dashboard-sheet.hbs",
             width: 674,
-            height: 162,
+            height: 165,
             resizable: false,
             tabs: []
         });

@@ -8,7 +8,7 @@ THIS UPDATE REQUIRES ALL OF THE TABLES TO BE REINSTALLED
 - Changed background of module list in order to see the text better (was unable to change font color).
 - Completely rewrote and refactored the generator scripts for much better optimization, usage efficiency, all to accommodate...
 - Detail and exploration tools provided for each location type, tailored towards the location.
-- Incorporated Location Themes into all locations that utilize them.
+- Incorporated Location Themes into all locations.
 - Incorporated Oracle Arrays into Derelicts and Precursor Vault locations.
 
 ![image](https://user-images.githubusercontent.com/84727873/124336519-5097ab00-db6c-11eb-828e-06da06ddec61.png)
