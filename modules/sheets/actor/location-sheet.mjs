@@ -174,8 +174,6 @@ import { rollFromFolder } from "../../generators/core-generator.mjs";
                 break;
             }
         }
-        console.log(roll);
-
         if ( tableName === "Descriptor + Focus" ) {
             let result = await rollFromFolder( "[ Descriptors ]", false );
             content += "[D+F] " + result.result + " + ";
