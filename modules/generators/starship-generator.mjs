@@ -47,7 +47,10 @@ export async function generateStarship() {
       type: "location",
       folder: sector.data.folder,
       img: starshipImage,
-      data: {
+      token: {
+        actorLink: true
+    },
+  data: {
         type: "Starship",
         details: content,
       }

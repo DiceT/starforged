@@ -1,5 +1,14 @@
 import { rollChallenge, rollFulfillChallenge } from "../../helpers/skill-rolls.mjs";
 import { rollFromFolder } from "../../generators/core-generator.mjs";
+import { generateSector } from "../../generators/sector-generator.mjs";
+import { generateYourTruths } from "../../generators/your-truths.mjs";
+import { generateSettlement } from "../../generators/settlement-generator.mjs";
+import { generatePlanet } from "../../generators/planet-generator.mjs";
+import { generateStarship } from "../../generators/starship-generator.mjs";
+import { generateDerelict } from "../../generators/derelict-generator.mjs";
+import { generateNPC } from "../../generators/npc-generator.mjs";
+import { generateCreature } from "../../generators/creature-generator.mjs";
+import { generatePrecursor } from "../../generators/precursor-generator.mjs";
 
 /**
  * @extends {ActorSheet}
@@ -275,8 +284,89 @@ export class StarforgedCharacterSheet extends ActorSheet {
         html.find('.item-delete').click(this._onItemDelete.bind(this));
 
         html.find('.asset-track-value').click(this._onAssetTrackValue.bind(this));
+        html.find('.clear-statistics').click(this._onClearStatistics.bind(this));
+
     }
     /** ------------------------------------------------------------------ */
+
+    async _onRollGenerator(event) {
+        event.preventDefault();
+        let generator = event.currentTarget.getAttribute('data-generator');
+        let type = event.currentTarget.getAttribute('data-type');
+        switch ( generator ) {
+            case "Sector": { await generateSector(type); break; }
+            case "Settlement": { await generateSettlement(type); break; }
+            case "Planet": { await generatePlanet(); break; }
+            case "Starship": { await generateStarship(); break; }
+            case "Derelict": { await generateDerelict(type); break; }
+            case "NPC": { await generateNPC(); break; }
+            case "Creature": { await generateCreature(); break; }
+            case "Precursor": { await generatePrecursor(type); break; }
+            case "YourTruths": {
+                if ( await game.folders.getName("Your Truths") == undefined ) { generateYourTruths(); }
+                break;
+            }
+        }
+        return;
+    }
+
+    async _onClearStatistics(event) {
+        event.preventDefault();
+        await this.actor.update ({
+            data: {
+                statistics: {
+                    actionRolls: {
+                        rollsTotal: 0,
+                        valueTotal: 0,
+                        skillBonusTotal: 0,
+                        addBonusTotal: 0,
+                        ones: 0,
+                        sixes: 0,
+                        challengeRolls: {
+                            rollsTotal: 0,
+                            valueTotal: 0,
+                            ones: 0,
+                            tens: 0
+                        }
+                    },
+                    progressRolls: {
+                        rollsTotal: 0,
+                        valueTotal: 0,
+                        challengeRolls: {
+                            rollsTotal: 0,
+                            valueTotal: 0,
+                            ones: 0,
+                            tens: 0
+                        }
+                    },
+                    results: {
+                        opportunities: {
+                        actionRoll: 0,
+                        progressRoll: 0
+                        },
+                        strongHits: {
+                            actionRoll: 0,
+                            progressRoll: 0
+                        },
+                        weakHits: {
+                            actionRoll: 0,
+                            progressRoll: 0
+                        },
+                        misses: {
+                            actionRoll: 0,
+                            progressRoll: 0
+                        },
+                        perils: {
+                            actionRoll: 0,
+                            progressRoll: 0
+                        }
+                    },
+                    burnMomentum: 0,
+                    negativeMomentum: 0
+                }
+            }
+        });
+    }
 
     async _onAssetTrackValue(event) {
         event.preventDefault();
@@ -554,25 +644,6 @@ export class StarforgedCharacterSheet extends ActorSheet {
         });
     }
     /** ------------------------------------------------------------------ */
-
-    async _onRollGenerator(event) {
-        event.preventDefault();
-        let generator = event.currentTarget.getAttribute('data-generator');
-        let type = event.currentTarget.getAttribute('data-type');
-
-        switch ( generator ) {
-            case "Sector": { generateSector(type); break; }
-
-
-            case "YourTruths": {
-                if ( game.folders.getName("Your Truths") == undefined ) { generateYourTruths(); }
-                break;
-            }
-            
-        }
-
-        return;
-    }
 
     async _onClearProgressClick(event) {
         const itemID = event.currentTarget.getAttribute('data-item-id');

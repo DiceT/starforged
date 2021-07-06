@@ -36,6 +36,9 @@ export async function generatePrecursor( location ) {
         type: "location",
         folder: sector.data.folder,
         img: precursorImage,
+        token: {
+            actorLink: true
+        },
         data: {
           type: "Precursor Vault",
           locationType: location,

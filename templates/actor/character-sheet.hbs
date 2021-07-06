@@ -22,11 +22,12 @@
       {{!-- Default tab is specified in actor-sheet.mjs --}}
       <a class="character-tab button-stack-button full" data-tab="legacies"><span>LEGACIES</span></a>
       <a class="character-tab button-stack-button full" data-tab="assets"><span>ASSETS</span></a>
-      <a class="character-tab button-stack-button full" data-tab="challenges"><span>CHALLENGES</span></a>
-      <a class="character-tab button-stack-button full" data-tab="completed"><span>COMPLETED</span></a>
+      <a class="character-tab button-stack-button full" style="font-size: smaller;" data-tab="challenges"><span>CHALLENGES</span></a>
+      <a class="character-tab button-stack-button full" style="font-size: smaller;" data-tab="completed"><span>COMPLETED</span></a>
       <a class="character-tab button-stack-button full" data-tab="moves"><span>MOVES</span></a>
       <a class="character-tab button-stack-button full" data-tab="journal"><span>JOURNAL</span></a>
-      <a class="character-tab button-stack-button full" data-tab="statistics"><span>STATISTICS</span></a>
+      <a class="character-tab button-stack-button full" style="font-size: smaller;" data-tab="statistics"><span>STATISTICS</span></a>
+      <a class="character-tab button-stack-button full" data-tab="tools"><span>TOOLS</span></a>
     </nav>
 
     <section class="sheet-body">
@@ -57,6 +58,11 @@
       <section class="tab" data-group="primary" data-tab="statistics">
         {{> "systems/starforged/templates/tabs/statistics.hbs" }}
       </section>
+
+      <section class="tab" data-group="primary" data-tab="tools">
+        {{> "systems/starforged/templates/partials/generators.hbs" }}
+      </section>
+
     </section>
   </div>
 

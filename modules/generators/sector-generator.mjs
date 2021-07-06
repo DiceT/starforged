@@ -25,6 +25,9 @@ export async function generateSector( sectorLocation = "Random" ) {
         type: "location",
         img: "./systems/starforged/resources/stars/Star 01.png",
         folder: sectorFolder.id,
+        token: {
+            actorLink: true
+        },
         data: {
             type: "Sector",
             details: content,

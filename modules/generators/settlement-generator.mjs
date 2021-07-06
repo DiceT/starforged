@@ -25,7 +25,10 @@ export async function generateSettlement( settlementType = "Random" ) {
       type: "location",
       folder: sector.folder,
       img: settlementImage,
-      data: {
+      token: {
+        actorLink: true
+    },
+  data: {
         type: "Settlement",
         locationType: settlementType,
         details: content,
@@ -45,6 +48,11 @@ export async function generateSettlement( settlementType = "Random" ) {
       hidden: false,
       actorId: newSettlement.id,
       actorLink: true,
+      displayName: 50,
+      disposition: 0,
+      nameplate: {
+          visible: true
+      },      
       actorData: {}
     }
   

@@ -46,7 +46,10 @@ export async function generateDerelict( location ) {
         type: "location",
         folder: sector.data.folder,
         img: derelictImage,
-        data: {
+        token: {
+          actorLink: true
+        },
+      data: {
           type: "Derelict",
           locationType: derelictType.result,
           details: content,

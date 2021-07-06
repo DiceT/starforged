@@ -21,6 +21,9 @@ export async function generateNPC() {
         name: characterName,
         type: "location",
         folder: sector.data.folder,
+        token: {
+            actorLink: true
+        },
         data: {
           type: "NPC",
           details: content

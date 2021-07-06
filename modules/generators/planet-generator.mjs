@@ -37,6 +37,9 @@ export async function generatePlanet() {
         type: "location",
         folder: sector.folder,
         img: planetImage,
+        token: {
+            actorLink: true
+        },
         data: {
           type: "Planet",
           locationType: planetType.result,
@@ -75,6 +78,11 @@ export async function generatePlanet() {
         hidden: false,
         actorId: newPlanet.id,
         actorLink: true,
+        displayName: 50,
+        disposition: 0,
+          nameplate: {
+            visible: true,
+        },
         actorData: {}
     }
 
