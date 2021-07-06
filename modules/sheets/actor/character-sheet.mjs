@@ -381,7 +381,8 @@ export class StarforgedCharacterSheet extends ActorSheet {
     async _onRollFromFolder(event) {
         let folder1 = event.currentTarget.getAttribute('data-folder1');
         let folder2 = event.currentTarget.getAttribute('data-folder2');
-        rollFromFolder(folder1, folder2);
+        rollFromFolder(folder1, false);
+        if ( folder2 ) { rollFromFolder(folder2, false); }
     }
 
     /** ------------------------------------------------------------------ */

@@ -1,3 +1,6 @@
+v0.19
+- Fixed the Action + Theme and Descriptor + Focus table rollers on the full character sheet as well as the dashboard.
+
 v0.18
 THIS UPDATE REQUIRES ALL OF THE TABLES TO BE REINSTALLED
 : Please DELETE ALL on your Starforged folders in the tables section (right click the folder --> Delete All --> Yes ). Then REFRESH (F5).
