@@ -1,4 +1,4 @@
-v0.19
+v0.2.00
 - Fixed the Action + Theme and Descriptor + Focus table rollers on the full character sheet as well as the dashboard.
 - STATISTICS header is now a button that will clear statistics.
 - Added TOOLS tab to the main character sheet to have access to all generator tools from one character sheet.
@@ -6,7 +6,6 @@ v0.19
 - Planets and Settlements will have their names displayed automatically when generated.
 - Fixed the macro template so you can enter in the name of a folder or the name of a specific table
 - Added default macros for several tables that don't have direct links within the system: Confront Chaos, Endure Harm, Endure Stress, Make a Discovery, Take Decisive Action, Withstand Damage
-
 
 v0.18
 THIS UPDATE REQUIRES ALL OF THE TABLES TO BE REINSTALLED
