@@ -4,6 +4,9 @@ This system, designed to play Ironsworn: Starforged, features robust content gen
 
 FULL README WILL BE UPLOADED SOON.
 
+TLDW: Create a new character. Switch to the TOOLS tab. Generate Your Truths and read the journal entries about your custom system. Generate a sector. Generate some planets and settlements. Play. Become ruler of the galaxy.
+
+
 In the meantime, check out the installation and tour video at https://www.youtube.com/watch?v=25jM_uhllgM.
 
 This work is based on Ironsworn: Starforged (found at www.ironswornrpg.com), created by Shawn Tomkin, and licensed for our use under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (creativecommons.org/licenses/by-nc-sa/4.0/).
