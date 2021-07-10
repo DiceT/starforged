@@ -141,9 +141,9 @@ margin: 0;
 width: auto;
 height: auto; }
 
-.starforged .tox-tinymce button[title="Table"],
-.starforged .tox-tinymce button[title="Horizontal line"],
-.starforged .tox-tinymce button[title="Insert/edit link"] {
+/* .starforged .tox-tinymce button[title="Table"], 
+.starforged .tox-tinymce button[title="Insert/edit link"], */
+.starforged .tox-tinymce button[title="Horizontal line"] {
 display: none; }
 
 .starforged-dossier .journal {

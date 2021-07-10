@@ -15,7 +15,7 @@
   "scripts": [],
   "packs": [
     {
-      "name": "assets",
+      "name": "starforged-assets",
       "label": "Starforged Assets",
       "system": "starforged",
       "path": "./packs/assets.db",
@@ -29,7 +29,7 @@
       "entity": "Item"
     },
     {
-      "name": "moves",
+      "name": "starforged-moves",
       "label": "Starforged Moves",
       "system": "starforged",
       "path": "./packs/moves.db",
@@ -43,7 +43,7 @@
       "entity": "Macro"
     },
     {
-      "name": "tables",
+      "name": "starforged-tables",
       "label": "Starforged Tables",
       "system": "starforged",
       "path": "./packs/tables.db",

@@ -34,6 +34,7 @@ textarea, .sidebar-tab .directory-header,
   padding: 1px;
 }
 
+
 .package-list, .package-title .checkbox, .package-overview label {
   background-color: #339999;
 }
@@ -70,8 +71,8 @@ textarea, .sidebar-tab .directory-header,
 }
 
 a.entity-link, a.inline-roll {
-    height: 24px;
-    padding: 4px 4px 2px 4px;
+    height: 20px;
+    padding: 1px 4px 1px 4px;
     background-color: #33999933;
     border: 1px solid #66ffff33;
   }

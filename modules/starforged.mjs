@@ -19,6 +19,7 @@ import { StarforgedMoveSheet } from "./sheets/item/move-sheet.mjs";
 import { loadPartials } from "./helpers/load-partials.mjs";
 import { initializeHandlebars } from "./helpers/handlebars.mjs";
 import { initializeFolders, initializeRollTables } from "./helpers/initialization.mjs"
+import { importFromDataforged, processDataforged } from "./dataforged.mjs";
 
 
 
@@ -28,10 +29,12 @@ import { initializeFolders, initializeRollTables } from "./helpers/initializatio
 Hooks.once('init', function() {
 
     // This is making our Documents more easiliy acccible through the game.starforged object
-    game.starforged - {
+    game.starforged = {
         StarforgedActor,
-        StarforgedItem
-    };
+        StarforgedItem,
+        importFromDataforged,
+        processDataforged
+      };
 
     // CONFIG definitions
     CONFIG.Actor.documentClass = StarforgedActor;
@@ -53,18 +56,14 @@ Hooks.once('init', function() {
     Items.registerSheet("starforged", StarforgedAssetSheet, { types: ["asset"], makeDefault: true } );
     Items.registerSheet("starforged", StarforgedMoveSheet, { types: ["move"], makeDefault: true } );
 
-    // Actors.registerSheet("starforged", StarforgedJournalSheet, { makeDefault: true } );
-  
     loadPartials();
     initializeHandlebars();
     return;
 });
 
 Hooks.on("init", () => {
-  // CONFIG.TinyMCE.toolbar = "code styleselect bullist table hr save"; //styleselect bullist image table hr 
+  //CONFIG.TinyMCE.toolbar = "code styleselect bullist table hr save"; //styleselect bullist image table hr 
   CONFIG.TinyMCE.content_css = "systems/starforged/css/settings/mci.css";
-
-  // CONFIG.TinyMCE.selector = "div.details";
 });
 
 /*  -----------------------------------------------
@@ -108,7 +107,7 @@ Hooks.on('createActor', async (actor, options, id) => {
     }
 
     let moves = game.items.entities.filter( i => i.type == "move" );
-    pack = game.packs.get("starforged.moves");
+    pack = game.packs.get("starforged.starforged-moves");
     compendium = pack ? await pack.getContent() : [];
     const actorMoves = actor.data.items.filter( i => i.data.data.type == "move" );
 

@@ -458,7 +458,7 @@ export async function initializeRollTables() {
     tables.push( {table: "Starforged - Starship Names", folder: "[ Starships - Names ]"} );
     tables.push( {table: "Starship Type", folder: "[ Starships - Types ]"} );
 
-    const pack = await game.packs.get("starforged.tables");
+    const pack = await game.packs.get("starforged.starforged-tables");
     const index = await pack.getIndex();
 
     for ( let currentTable of tables ){

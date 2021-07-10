@@ -12,23 +12,17 @@
             </div>
         </div>
 
-        <div>
-            <label style="margin-left: 8px;">Description</label>
-            <div class="details" style="margin-bottom: 8px;">
-                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-            </div>
-            <label style="margin-left: 8px;">Strong Hit</label>
-            <div class="details" style="margin-bottom: 8px;">
-                {{editor content=data.strongHit target="data.strongHit" button=true owner=owner editable=editable}}
-            </div>
-            <label style="margin-left: 8px;">Weak Hit</label>
-            <div class="details" style="margin-bottom: 8px;">
-                {{editor content=data.weakHit target="data.weakHit" button=true owner=owner editable=editable}}
-            </div>
-            <label style="margin-left: 8px;">Miss</label>
-            <div class="details">
-                {{editor content=data.miss target="data.miss" button=true owner=owner editable=editable}}
-            </div>
+        <div class="details">
+            {{{data.description}}}
+            {{#if data.strongHit}}
+                {{{data.strongHit}}}
+            {{/if}}
+            {{#if data.strongHit}}
+                {{{data.weakHit}}}
+            {{/if}}
+            {{#if data.strongHit}}
+                {{{data.miss}}}
+            {{/if}}
         </div>
     </div>
 </form>
