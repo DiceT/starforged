@@ -215,6 +215,8 @@ export function initializeHandlebars() {
       case "Epic": difficulty = 5; break;
     }
 
+    console.log(n);
+
     for (let i = 1; i <= 5; ++i) {
       result += "<span class='hex-difficulty' data-value='" + i + "'>";
       result += "<img src='systems/starforged/resources/tracks/hex-";

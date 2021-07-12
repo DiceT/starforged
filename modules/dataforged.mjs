@@ -2,7 +2,6 @@ export async function processDataforged() {
 
     for (const key of ['starforged.starforged-moves']) {
         const pack = await game.packs.get(key);
-        await pack.render(true);
         const idsToDelete = pack.index.map( x => x._id )
         for ( const id of idsToDelete ) {
             const document = await pack.getDocument(id);
@@ -182,7 +181,6 @@ export async function importFromDataforged () {
     // Empty out the packs
     for (const key of ['starforged.starforged-moves', 'starforged.starforged-assets']) {
         const pack = await game.packs.get(key);
-        await pack.render(true);
         const idsToDelete = pack.index.map( x => x._id )
         for ( const id of idsToDelete ) {
             const document = await pack.getDocument(id);
