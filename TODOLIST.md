@@ -3,6 +3,8 @@
 
 - Link all assets.
 - Update all Move and Asset links so they default to the active character when clicking the ROLL links when they are viewed outside of the character sheet.
+- Only initiate the Moves and Assets update if there is a change to the source data.
+- Update the character sheet with any updated Moves and Assets.
 
 - If a player token is present on the map, generate a token for a created location/character at the player character's location, offset a bit for visibility.
 
