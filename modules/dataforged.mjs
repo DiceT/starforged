@@ -1,13 +1,17 @@
 export async function processDataforged() {
 
+    let compendium;
     for (const key of ['starforged.starforged-moves']) {
         const pack = await game.packs.get(key);
+        compendium = pack;
         const idsToDelete = pack.index.map( x => x._id )
         for ( const id of idsToDelete ) {
             const document = await pack.getDocument(id);
             document.delete();
         }
     }
+
+    console.log(compendium);
 
     const movesJson = await fetch('/systems/starforged/dataforged-main/moves.json').then(x => x.json());
 
