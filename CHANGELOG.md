@@ -1,7 +1,7 @@
 v0.5.0
  - BETA RELEASE!
  - Fixed 2 Character tables which did not have the table descriptions.
- - Added functionality to import Moves from Datasworn (official Starforged text). This populates the Compendium with the most up-to-date data. Currently, existing characters will not be updated with the most current moves (requires a new character).
+ - Added functionality to import Moves from Datasworn (official Starforged text). This populates the Compendium with the most up-to-date data. Currently, existing characters will not be updated with the most current moves (requires a new character). The Moves currently need to be updated by myself prior to pushing any changes.
  - Fixed an issue where the Challenges were not displaying the proper hexes based upon difficulty of the Challenge when editing it.
  
 
