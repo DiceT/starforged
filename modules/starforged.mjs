@@ -19,7 +19,7 @@ import { StarforgedMoveSheet } from "./sheets/item/move-sheet.mjs";
 import { loadPartials } from "./helpers/load-partials.mjs";
 import { initializeHandlebars } from "./helpers/handlebars.mjs";
 import { initializeFolders, initializeRollTables } from "./helpers/initialization.mjs"
-import { importFromDataforged, processDataforged } from "./dataforged.mjs";
+import { processDataforged } from "./dataforged.mjs";
 
 
 
@@ -32,7 +32,6 @@ Hooks.once('init', function() {
     game.starforged = {
         StarforgedActor,
         StarforgedItem,
-        importFromDataforged,
         processDataforged
       };
 

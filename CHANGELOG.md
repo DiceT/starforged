@@ -1,3 +1,8 @@
+v0.5.2
+ - Added functionality to import Assets from Datasworn (official Starforged text). This populates the Compendium with the most up-to-date data. Currently, existing characters will not be updated with the most current moves (requires a new character).
+ - Assets and Moves are updated manually by myself prior to uploading the files that contain the updated packs.
+ - Current Assets and Moves are up-to-date. If you see any broken links or anomalies, please report them to my Discord/Starforged channel.
+
 v0.5.1
  - BETA RELEASE!
  - Fixed 2 Character tables which did not have the table descriptions.
