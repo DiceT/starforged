@@ -3,6 +3,7 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 /.gitignore
+.idea/**/vcs.xml
 
 # Created by https://www.gitignore.io/api/intellij
 # Created by https://www.toptal.com/developers/gitignore/api/intellij
@@ -46,7 +47,7 @@
 # .idea/compiler.xml
 # .idea/jarRepositories.xml
 # .idea/modules.xml
-# .idea/*.iml
+.idea/*.iml
 # .idea/modules
 # *.iml
 # *.ipr
@@ -90,8 +91,8 @@ fabric.properties
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
-# modules.xml
+ # *.iml
+modules.xml
 # .idea/misc.xml
 # *.ipr
 
