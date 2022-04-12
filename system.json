@@ -1,9 +1,9 @@
 {
   "name": "starforged",
-  "title": "Ironsworn: Starforged-forked",
+  "title": "Ironsworn: Starforged",
   "description": "Forked version of Ironsworn: Starforged for FoundryVTT!",
-  "version": "0.7.0",
-  "minimumCoreVersion": "0.8.3",
+  "version": "0.8.0",
+  "minimumCoreVersion": "0.9.0",
   "compatibleCoreVersion": "9",
   "author": "Dice T, Zaxim",
   "esmodules": [
@@ -61,8 +61,8 @@
   "gridUnits": "LY",
   "primaryTokenAttribute": "",
   "secondaryTokenAttribute": "",
-  "url": "https://github.com/Zaxim/starforged-forked",
-  "manifest": "https://raw.githubusercontent.com/Zaxim/starforged-forked/v0.7.0/system.json",
-  "download": "https://github.com/Zaxim/starforged-forked/archive/refs/tags/v0.7.0.zip",
+  "url": "https://github.com/dicet/starforged",
+  "manifest": "https://raw.githubusercontent.com/dicet/starforged/v0.8.0/system.json",
+  "download": "https://github.com/dicet/starforged/archive/refs/tags/v0.8.0.zip",
   "license": "LICENSE.txt"
 }

@@ -1,4 +1,4 @@
-v0.5.3 (IN PROGRESS)
+v0.8.0 (IN PROGRESS)
  - Faction tables will now automatically populate 
  - Faction generator added to character dashboard
  - Faction sheet now generated with appropriate data and buttons for "deep dive"
