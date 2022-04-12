@@ -1,9 +1,7 @@
-This is an unofficial fork of Dice T's Ironsworn: Starforged Foundry VTT module. It exists solely to provide compatibility for Foundry VTT v9 and the latest [Dataforged ruleset](https://github.com/rsek/dataforged). In the event the mainline module is updated, it will be deprecated.
+Back to life. Back to reality.
 
 Known issues:
-- Starship type table is a little broken
-- No faction generation button, but the roll tables are there
-- No support for clocks
+ - see the TODOLIST.md for current outstanding issues.
 
 This system, designed to play Ironsworn: Starforged, features robust content generation utilities meant to increase your immersion while also getting you to the gameplay faster. The core system features approximately 260 tables and is designed to be easily expandable simply by dropping new tables into the designated folders. While this system is currently in its first release state, it is feature-rich and allows you to play Starforged to its full extent. This system is unofficial.
 
