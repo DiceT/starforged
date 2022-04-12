@@ -1,5 +1,5 @@
 v0.5.3
- - Faction tables will now automatically populate
+ - Faction tables will now automatically populate 
  - Faction generator added to character dashboard
  - Faction sheet now generated with appropriate data and buttons for "deep dive"
  - Starship Type has fixed
