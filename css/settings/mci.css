@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+
+.mce-content-body {
+    font-family: "Oxanium", sans-serif;
+    color: #6ff;
+    font-size: smaller;
+}
+
+a.entity-link a.inline-roll {
+    background-color: #66ffff99;
+}
+
+::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 3px;
+    background: #33999933;
+    border: 1px solid #6ff;
+  }
+

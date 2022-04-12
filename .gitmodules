@@ -1,0 +1,3 @@
+[submodule "dataforged-main"]
+	path = dataforged-main
+	url = https://github.com/rsek/dataforged.git

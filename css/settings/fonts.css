@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Oxanium";
+    src: url("/systems/starforged/resources/fonts/Oxanium-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Oxanium";
+    src: url("/systems/starforged/resources/fonts/Oxanium-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Oxanium";
+    src: url("/systems/starforged/resources/fonts/Oxanium-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Oxanium";
+    src: url("/systems/starforged/resources/fonts/Oxanium-ExtraBold.ttf");
+    font-weight: 900;
+}

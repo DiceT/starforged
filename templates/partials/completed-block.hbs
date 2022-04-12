@@ -1,0 +1,21 @@
+<div class="challenge-details">
+    <div>
+        <div class="difficulty-track">
+            <div><h3>
+                <span style="text-transform: uppercase">{{data.type}}:</span>
+                <b>{{name}}</b></h3></div>
+            <div class="a-right">
+                {{#difficultyTrack data.difficulty}}{{/difficultyTrack}}
+            </div>
+        </div>
+    </div>
+    <div class="progress-track">
+        <center>{{#progressTrack data.progress}}{{/progressTrack}}</center>
+    </div>
+    <div class="starforged-generator">
+        <div class="button-stack-spacer full progress-button">&nbsp;</div>
+        <div class="button-stack-spacer full progress-button">&nbsp;</div>
+        <div class="button-stack-spacer full progress-button">&nbsp;</div>
+        <div class="button-stack-button full progress-button complete-progress {{#if data.completed}}roll-bonus-selected{{/if}}" data-item-id="{{_id}}">Complete</div>
+    </div>
+</div>

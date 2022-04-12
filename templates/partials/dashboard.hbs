@@ -1,0 +1,100 @@
+{{#*inline "stack"}}
+  {{#rangeEach from=from to=to current=(lookup data stat)}}
+    <div class="
+      button-stack-button dim bot roll-bonus 
+      {{stat}}
+      {{#if isCurrent}} roll-bonus-selected{{/if}}
+      " data-value="{{stat}}" data-resource="{{value}}">
+      {{valueStr}}
+    </div>
+  {{/rangeEach}}
+{{/inline}}
+
+<div class="starforged-character-dock">
+  <div class="button-stack">
+    <div class="button-stack-button dim top record-stats {{#if data.statistics.enabled}} roll-bonus-selected{{/if}}">RECORD</div>
+    <div class="button-stack-button bright mid x-small momentum-burn">MOMENTUM</div>
+    <div class="stat"><input name="data.momentum.value" type="text" value="{{data.momentum.value}}"/></div>
+    <div class="stat-footer">
+      <div class="button-stack-button bright bot-left minus-one" data-value="momentum" data-score="{{data.momentum.value}}">-</div>
+      <div class="button-stack-button bright bot-right plus-one" data-value="momentum" data-score="{{data.momentum.value}}">+</div>
+    </div>
+  </div>
+
+  <div class="horizontal-spacer"></div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top smaller roll-from-folder" data-folder1="Ask the Oracle - Small Chance">DOUBTFUL</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="edge">EDGE</div>
+    <div class="stat"><input name="data.abilities.edge" type="text" value="{{data.abilities.edge}}"/></div>
+    <div class="stat-footer">
+      {{>stack stat="rollBonus" from=-4 to=-3}}
+    </div>
+  </div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="Ask the Oracle - Unlikely">UNLIKELY</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="heart">HEART</div>
+    <div class="stat"><input name="data.abilities.heart" type="text" value="{{data.abilities.heart}}"/></div>
+    <div class="stat-footer">
+      {{>stack stat="rollBonus" from=-2 to=-1}}
+    </div>
+  </div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="Ask the Oracle - 50/50">50 / 50</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="iron">IRON</div>
+    <div class="stat"><input name="data.abilities.iron" type="text" value="{{data.abilities.iron}}"/></div>
+    {{>stack stat="rollBonus" from=0 to=0}}
+  </div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="Ask the Oracle - Likely">LIKELY</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="shadow">SHADOW</div>
+    <div class="stat"><input name="data.abilities.shadow" type="text" value="{{data.abilities.shadow}}"/></div>
+    <div class="stat-footer">
+      {{>stack stat="rollBonus" from=1 to=2}}
+    </div>
+  </div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="Ask the Oracle - Almost Certain">CERTAIN</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="wits">WITS</div>
+    <div class="stat"><input name="data.abilities.wits" type="text" value="{{data.abilities.wits}}"/></div>
+    <div class="stat-footer">
+      {{>stack stat="rollBonus" from=3 to=4}}
+    </div>
+  </div>
+
+  <div class="horizontal-spacer"></div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="[ Actions ]" data-folder2="[ Themes ]">A + T</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="health">HEALTH</div>
+    <div class="stat"><input name="data.health.value" type="text" value="{{data.health.value}}"/></div>
+    <div class="stat-footer">
+      <div class="button-stack-button bright bot-left minus-one" data-value="health" data-score="{{data.health.value}}">-</div>
+      <div class="button-stack-button bright bot-right plus-one" data-value="health" data-score="{{data.health.value}}">+</div>
+    </div>
+  </div>
+
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="[ Descriptors ]" data-folder2="[ Foci ]">D + F</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="spirit">SPIRIT</div>
+    <div class="stat"><input name="data.spirit.value" type="text" value="{{data.spirit.value}}"/></div>
+    <div class="stat-footer">
+      <div class="button-stack-button bright bot-left minus-one" data-value="spirit" data-score="{{data.spirit.value}}">-</div>
+      <div class="button-stack-button bright bot-right plus-one" data-value="spirit" data-score="{{data.spirit.value}}">+</div>
+    </div>
+  </div>
+  
+  <div class="button-stack">
+    <div class="button-stack-button dim top roll-from-folder" data-folder1="Ask the Oracle - Pay the Price">PAY PRICE</div>
+    <div class="button-stack-button bright mid skill-roll" data-value="supply">SUPPLY</div>
+    <div class="stat"><input name="data.supply.value" type="text" value="{{data.supply.value}}"/></div>
+    <div class="stat-footer">
+      <div class="button-stack-button bright bot-left minus-one" data-value="supply" data-score="{{data.supply.value}}">-</div>
+      <div class="button-stack-button bright bot-right plus-one" data-value="supply" data-score="{{data.supply.value}}">+</div>
+    </div>
+  </div>
+</div>

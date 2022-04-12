@@ -1,0 +1,28 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="starforged-dossier">
+        <div class="header">
+            <div>
+                <h2><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h2>
+                <h3><select name="data.moveType">
+                    {{selectOptions config.moveType selected=data.moveType localize=true}}
+                </select></h3>
+            </div>
+            <div class="profile-img">
+                <img src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+            </div>
+        </div>
+
+        <div class="details">
+            {{{data.description}}}
+            {{#if data.strongHit}}
+                {{{data.strongHit}}}
+            {{/if}}
+            {{#if data.strongHit}}
+                {{{data.weakHit}}}
+            {{/if}}
+            {{#if data.strongHit}}
+                {{{data.miss}}}
+            {{/if}}
+        </div>
+    </div>
+</form>

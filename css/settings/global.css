@@ -1,0 +1,98 @@
+.app {
+  color: #6ff;
+}
+
+.window-app .window-content, .window-header,
+.window-content input, 
+.window-content select,
+.window-content button,
+.dialog-content, 
+.dialog-button, 
+.dialog-content input,
+.dialog-button select, 
+.button,
+.roll-table-config input,
+.roll-table-config button,
+.roll-table-config textarea,
+.roll-table-config select,
+.journal-sheet input,
+.journal-sheet button,
+.journal-sheet textarea,
+.journal-sheet select,
+#chat-log .message,
+#chat-form textarea,
+#chat-controls div.roll-type-select select, 
+textarea, .sidebar-tab .directory-header,
+.module-management, .directory-list, 
+#chat-form .cm-s-easymde {
+  background: #33999933;
+  color: #6ff;
+  background-image: url("../../resources/black.png");
+  box-shadow: 0 0 10vw #33999933 inset;
+  font-family: "Oxanium", sans-serif;
+  margin: 0px;
+  padding: 1px;
+}
+
+
+.package-list, .package-title .checkbox, .package-overview label {
+  background-color: #339999;
+}
+
+.window-content select option,
+.dialog-button select option, 
+.roll-table-config select option,
+.journal-sheet select option,
+#chat-controls div.roll-type-select select option {
+  background-color: #339999;
+}
+
+.window-content .notes, .chat-message .flavor-text, .chat-message .table-draw .table-description {
+  color: #33999999;
+}
+
+.chat-message .table-draw .table-description, .chat-message .table-draw .table-results .table-result {
+  padding: 4px;
+}
+
+.journal-sheet .editor-content {
+  margin: 4px;
+  border: 1px solid #33999999;
+  border-radius: 8px;
+  color: #6ff;
+  padding: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  outline: none;
+  border-radius: 3px;
+  background: #33999933;
+  border: 1px solid #6ff;
+}
+
+a.entity-link, a.inline-roll {
+    height: 20px;
+    padding: 1px 4px 1px 4px;
+    background-color: #33999933;
+    border: 1px solid #66ffff33;
+  }
+  
+a.entity-link:hover {
+  color: #336666;
+  background-color: #66ffff99;
+  text-shadow: none;
+}
+
+a.character-tab:hover {
+  color: #336666;
+  background-color: #66ffff99;
+  text-shadow: none;
+}
+  
+.fas:hover, .fas-user:hover {
+  color: #44aaaa99;
+}
+  
+.fa-user:before {
+  content: "\2b23";
+}

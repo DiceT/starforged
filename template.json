@@ -1,0 +1,175 @@
+{
+  "Actor": {
+    "types": ["character", "location" ],
+    "templates": {},
+    "character": {
+      "callsign": "",
+      "characteristics": "",
+      "journal": "",
+      "xpSpent": 0,
+      "rollBonus": 0,
+      "abilities": {
+        "edge": 1,
+        "heart": 1,
+        "iron": 1,
+        "shadow": 1,
+        "wits": 1
+      },
+      "momentum": {
+        "value": 2,
+        "max": 10,
+        "min": -6
+      },
+      "health": {
+        "value": 5,
+        "max": 5,
+        "min": 0
+      },
+      "spirit": {
+        "value": 5,
+        "max": 5,
+        "min": 0
+      },
+      "supply": {
+        "value": 5,
+        "max": 5,
+        "min": 0
+      },
+      "impacts": {
+        "wounded": false,
+        "shaken": false,
+        "unprepared": false,
+        "permanentlyHarmed": false,
+        "traumatized": false,
+        "doomed": false,
+        "tormented": false,
+        "indebted": false,
+        "battered": false,
+        "cursed": false,
+        "special1": false,
+        "special2": false
+      },
+      "specialImpact1": "",
+      "specialImpact2": "",
+      "statistics": {
+        "enabled": false,
+        "actionRolls": {
+          "rollsTotal": 0,
+          "valueTotal": 0,
+          "skillBonusTotal": 0,
+          "addBonusTotal": 0,
+          "ones": 0,
+          "sixes": 0,
+          "challengeRolls": {
+            "rollsTotal": 0,
+            "valueTotal": 0,
+            "ones": 0,
+            "tens": 0
+          }
+        },
+        "progressRolls": {
+          "rollsTotal": 0,
+          "valueTotal": 0,
+            "challengeRolls": {
+              "rollsTotal": 0,
+              "valueTotal": 0,
+              "ones": 0,
+              "tens": 0
+            }
+        },
+        "results": {
+          "opportunities": {
+            "actionRoll": 0,
+            "progressRoll": 0
+          },
+          "strongHits": {
+            "actionRoll": 0,
+            "progressRoll": 0
+          },
+          "weakHits": {
+            "actionRoll": 0,
+            "progressRoll": 0
+          },
+          "misses": {
+            "actionRoll": 0,
+            "progressRoll": 0
+          },
+          "perils": {
+            "actionRoll": 0,
+            "progressRoll": 0
+          }
+        },
+        "burnMomentum": 0,
+        "negativeMomentum": 0
+      }
+    },
+    "location": {
+      "type": "",
+      "locationType": "",
+      "lastKnown": "",
+      "details": "",
+      "notes": "",
+      "lists": [{
+        "type": "",
+        "link": ""
+      }]      
+    }
+  },
+  "Item": {
+    "types": ["challenge", "asset", "move"],
+    "templates": {},
+    "challenge": {
+      "type": "",
+      "difficulty": "Troublesome",
+      "completed": false,
+      "progress": 0,
+      "details": ""
+    },
+    "asset": {
+      "type": "",
+      "name": "",
+      "condition": "",
+      "special1": "",
+      "special2": "",
+      "abilities": {
+        "ability1": {
+          "enabled": true, 
+          "details": "Default Ability"
+        },
+        "ability2": {
+          "enabled": false, 
+          "details": ""
+        },
+        "ability3": {
+          "enabled": false, 
+          "details": ""
+        }
+      },
+      "track": {
+        "enabled": false,
+        "value": 5,
+        "min": 0,
+        "max": 5
+      },
+      "battered": {
+        "enabled": false,
+        "value": false
+      },
+      "cursed": {
+        "enabled": false,
+        "value": false
+      },
+      "outOfAction": {
+        "enabled": false,
+        "value": false
+      }
+    },
+  "move": {
+    "moveType": null,
+    "description": "",
+    "strongHit": "",
+    "weakHit": "",
+    "miss": ""
+    }
+  }
+}

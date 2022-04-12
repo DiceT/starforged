@@ -1,0 +1,30 @@
+{
+    "_id":"0kGEULPYFVLUDqYU",
+    "name":"Battle",
+    "type":"move",
+    "img":"icons/svg/item-bag.svg",
+    "data":{
+        "moveType":"combat",
+        "description":"<p><strong>When you fight a battle and it happens in a blur</strong>, envision your objective and roll. If you primarily...</p>
+        <ul>
+            <li>Fight at range, or using your speed and the environment to your advantage: <a class='entity-link bright mid skill-roll' data-value='edge'>Roll +EDGE</a>.</li>
+            <li>Fight depending on your courage, leadership, or companions: <a class='entity-link skill-roll' data-value='heart'>Roll +HEART</a>.</li>
+            <li>Fight in close to overpower your foe: <a class='entity-link skill-roll' data-value='iron'>Roll +IRON</a>.</li>
+            <li>Fight using trickery to befuddle your foe: <a class='entity-link skill-roll' data-value='shadow'>Roll +SHADOW</a>.</li>
+            <li>Fight using careful tactics to outsmart your foe: <a class='entity-link skill-roll' data-value='wits'>Roll +WITS</a>.</li>
+        </ul>",
+        "strongHit":"<p>On a <strong>strong hit</strong>, you achieve your objective unconditionally. You and any allies who joined the battle may take +2 momentum.</p>",
+        "weakHit":"<p>On a <strong>weak hit</strong>, you achieve your objective, but not without cost. <a class="entity-link" data-pack="starforged.moves" data-id="tbtLY9aLAu3exS2d"><i class="fas fa-suitcase"></i> Pay the Price</a>.</p>",
+        "miss":"<p>On a <strong>miss</strong>, you are defeated or the objective is lost to you. <a class="entity-link" data-pack="starforged.moves" data-id="tbtLY9aLAu3exS2d"><i class="fas fa-suitcase"></i> Pay the Price</a>.</p>"
+    },
+    "effects":[],
+    "folder":null,
+    "sort":0,
+    "permission":{
+        "default":0,
+        "jY3X5U2B4H4ghFn8":3
+    },
+    "flags":{}
+}
+
+<a class="entity-link" data-pack="starforged.moves" data-id="tbtLY9aLAu3exS2d"><i class="fas fa-suitcase"></i> Pay the Price</a>

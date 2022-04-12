@@ -1,0 +1,227 @@
+<div class="legacies">
+    <div>
+        <center><h4>MOVES</h4></center>
+        <div class = "assets">
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Adventure Moves</button>
+            <div class="item-details">
+            {{#each movesAdventure as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details editor">
+                        <div class="details editor-content">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Quest Moves</button>
+            <div class="item-details">
+            {{#each movesQuest as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Connection Moves</button>
+            <div class="item-details">
+            {{#each movesConnection as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Exploration Moves</button>
+            <div class="item-details">
+            {{#each movesExploration as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Combat Moves</button>
+            <div class="item-details">
+            {{#each movesCombat as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>            
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Suffer Moves</button>
+            <div class="item-details">
+            {{#each movesSuffer as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>            
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Threshold Moves</button>
+            <div class="item-details">
+            {{#each movesThreshold as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>            
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Recover Moves</button>
+            <div class="item-details">
+            {{#each movesRecover as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>            
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Legacy Moves</button>
+            <div class="item-details">
+            {{#each movesLegacy as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>            
+            <button type="button" class="collapsible" style="text-transform:capitalize; padding-left: 6px;">Fate Moves</button>
+            <div class="item-details">
+            {{#each movesFate as |item id|}}
+                    <button type="button" class="collapsible" style="background-color: #66ffff99; padding-left: 6px;">{{name}}</button>
+                    <div class="item-details">
+                        <div class="details">
+                            {{{data.description}}}
+                            {{#if data.strongHit }}
+                                {{{data.strongHit}}}
+                            {{/if}}
+                            {{#if data.weakHit }}
+                                {{{data.weakHit}}}
+                            {{/if}}
+                            {{#if data.miss }}
+                                {{{data.miss}}}
+                            {{/if}}
+                        </div>
+                    </div>
+            {{/each}}
+            </div>            
+        </div>
+    </div>
+    <div style="margin-left:8px">
+        {{> "systems/starforged/templates/partials/impacts.hbs" }}
+    </div>    
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>

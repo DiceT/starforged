@@ -1,0 +1,62 @@
+<div class="legacies">
+    <div>
+        <center><h4>ASSETS</h4></center>
+        <div class="assets">
+            {{#each assets as |item id|}}
+                <div class="asset-details item" data-item-id="{{_id}}">
+                    <button class="asset-header collapsible" type="button" style="padding-bottom: 2px;">
+                        <div style="padding-left: 6px;">{{name}}</div>
+                        <div class="a-right">
+                            {{#if data.track.enabled}}
+                                <div class="asset-partial-track">
+                                    <div>{{#assetTrack data.track}}{{/assetTrack}}</div>
+                                </div>
+                            {{/if}}
+                        </div>
+                    </button>
+                    <div class="item-details hide">
+                        <div class="details">
+                            {{#if data.name}}{{data.name}}{{/if}}
+                            <h5>{{data.type}}</h5>
+                            {{#if data.condition}}<h5>{{data.condition}}</h5>{{/if}}
+                            {{#if data.special1}}<h5>{{data.special1}}</h5>{{/if}}
+                            {{#if data.special2}}<h5>{{data.special2}}</h5>{{/if}}
+                            <div class="starforged-generator">
+                                {{#if data.battered.enabled}}
+                                    <div class="button-stack-button full progress-button asset-battered-value">BATTERED</div>
+                                {{/if}}
+                                {{#if data.cursed.enabled}}
+                                    <div class="button-stack-button full progress-button asset-cursed-value">CURSED</div>
+                                {{/if}}
+                                {{#if data.outOfAction.enabled}}
+                                    <div class="button-stack-button full progress-button asset-outofaction-value">OUT OF ACTION</div>
+                                {{/if}}
+                                <div class="button-stack-button full progress-button item-edit" data-item-id="{{_id}}">Edit</div>
+                                <div class="button-stack-button full progress-button item-delete" data-item-id="{{_id}}">Delete</div>                                
+                            </div>
+                            <div>
+                                <div class="details">
+                                    {{{data.abilities.ability1.details}}}
+                                </div>
+                                {{#if data.abilities.ability2.enabled}}
+                                    <div class="details">
+                                        {{{data.abilities.ability2.details}}}
+                                    </div>
+                                {{/if}}
+                                {{#if data.abilities.ability3.enabled}}
+                                    <div class="details">
+                                        {{{data.abilities.ability3.details}}}
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div style="margin-left:8px">
+        {{> "systems/starforged/templates/partials/impacts.hbs" }}
+    </div>
+</div>    
+

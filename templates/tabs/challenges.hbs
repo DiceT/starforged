@@ -1,0 +1,33 @@
+<div class="legacies">
+    <div>
+        <center><div class="button-stack-button full progress-button item-create" data-type="challenge" title="Add Challenge">CHALLENGES</div></center>
+        {{#each vows as |item id|}}
+            {{> "systems/starforged/templates/partials/challenge-block.hbs" }}
+        {{/each}}
+
+        {{#each combats as |item id|}}
+            {{> "systems/starforged/templates/partials/challenge-block.hbs" }}
+        {{/each}}
+
+        {{#each connections as |item id|}}
+            {{> "systems/starforged/templates/partials/challenge-block.hbs" }}
+        {{/each}}
+
+        {{#each expeditions as |item id|}}
+            {{> "systems/starforged/templates/partials/challenge-block.hbs" }}
+        {{/each}}
+
+        {{#each derelicts as |item id|}}
+            {{> "systems/starforged/templates/partials/challenge-block.hbs" }}
+        {{/each}}
+
+        {{#each precursors as |item id|}}
+            {{> "systems/starforged/templates/partials/challenge-block.hbs" }}
+        {{/each}}
+    </div>
+
+    <div style="margin-left:8px">
+        {{> "systems/starforged/templates/partials/impacts.hbs" }}
+    </div>
+
+</div>

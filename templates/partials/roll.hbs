@@ -1,0 +1,18 @@
+<div class="dice-roll">
+    {{#ifIsActionRoll}}
+        <div class="dice-result action-roll">
+            <div class="dice-formula">
+                {{{actionResult}}}
+                <p>{{{actionDice}}} vs {{{challengeDice}}}</p>
+                {{{burnMomentum}}}
+            </div>
+        </div>
+    {{else}}
+        {{#if flavor}}
+            <div class="match-result">{{flavor}}</div>
+        {{/if}}
+        <div class="dice-result action-roll">
+            <h4 class="dice-total">{{total}}</h4>
+        </div>
+    {{/ifIsActionRoll}}
+</div>
