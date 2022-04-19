@@ -80,8 +80,10 @@ Hooks.once("ready", async() => {
 
 // Things to do when a character is created
 Hooks.on('createActor', async (actor, options, id) => {
-  // Prepare updates object.
-  let updates = {};
+
+  // set actor link 
+  actor.data.token.actorLink = true;
+  actor.data.update(actor.data);
 
   // Add starting Legacies and Background Vow
   if (actor.data.type == 'character') {
@@ -126,9 +128,6 @@ Hooks.on('createActor', async (actor, options, id) => {
         moves_list.push(move.data.name);
       }
     }
-
-    // Link token
-    updates['token.actorLink'] = true;
 
     const legaciesToAdd = legacies.map( l => duplicate(l) );
     await actor.createEmbeddedDocuments('Item', legaciesToAdd, {});    
