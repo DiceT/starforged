@@ -62,7 +62,7 @@
   "primaryTokenAttribute": "",
   "secondaryTokenAttribute": "",
   "url": "https://github.com/dicet/starforged",
-  "manifest": "https://raw.githubusercontent.com/dicet/starforged/v0.8.0/system.json",
-  "download": "https://github.com/dicet/starforged/archive/refs/tags/v0.8.0.zip",
+  "manifest": "https://raw.githubusercontent.com/dicet/starforged/v.0.8.0/system.json",
+  "download": "https://github.com/dicet/starforged/archive/refs/tags/v.0.8.0.zip",
   "license": "LICENSE.txt"
 }

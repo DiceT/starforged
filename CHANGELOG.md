@@ -1,4 +1,9 @@
-v0.8.0 (IN PROGRESS)
+v0.8.1
+ - Added support for Session moves.
+ - Swapped order of Threshold and Recover move categories to align with the Starforged rule book.
+ - Added ability to View/Edit in Completed (Challenges) tab so you can view and edit notes without having to first unflag it as completed.
+
+v0.8.0
  - Faction tables will now automatically populate 
  - Faction generator added to character dashboard
  - Faction sheet now generated with appropriate data and buttons for "deep dive"

@@ -165,11 +165,13 @@
       }
     },
   "move": {
+    "id": "",
     "moveType": null,
     "description": "",
     "strongHit": "",
     "weakHit": "",
-    "miss": ""
+    "miss": "",
+    "backgroundColor": ""
     }
   }
 }

@@ -3,6 +3,7 @@ export const STARFORGED = {};
 STARFORGED.progressType = {
   combat:         'Combat',
   connection:     'Connection',
+  clock:          'Clock',
   derelict:       'Derelict',
   expedition:     'Expedition',
   precursor:      'Precursor',
@@ -21,6 +22,7 @@ STARFORGED.assetType = {
 };
 
 STARFORGED.moveType = {
+  session:        'Session',
   adventure:      'Adventure',
   quest:          'Quest',
   connection:     'Connection',

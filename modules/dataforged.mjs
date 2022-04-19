@@ -15,18 +15,16 @@ export async function processDataforged() {
         }
     }
     
-    await importTruths();
-    await importOracles();
-    await importMoves();
-    await importAssets();
+    // await importTruths();
+    // await importOracles();
+    // await importMoves();
+    // await importAssets();
 
     for (const key of pack_list) {
       const pack = await game.packs.get(key);
       await pack.configure({ locked: true });
   }
-
 }
-
 
 function replaceHTML(text){
     let html = text.replace("**", "<strong>");
@@ -462,7 +460,6 @@ export async function importTruths() {
 
 }
 
-
 export async function importAssets() {
     const assetssJson = await fetch('/systems/starforged/dataforged-main/starforged-assets.json').then(x => x.json());
   
@@ -577,82 +574,87 @@ export async function importMoves () {
   const movesJson = await fetch('/systems/starforged/dataforged-main/starforged-moves.json').then(x => x.json());
 
   const moves = [];
-  for ( const move of movesJson.Moves ) {
+  for ( const category of movesJson ) {
 
-    let description = "";
-    let strongHit = "";
-    let weakHit = "";
-    let miss = "";
-    let currentLine = "description";
-
-    var lines = move.Text.split('\n');
-
-    for ( let i = 0; i <= lines.length; i++ ) {
-        if ( lines[i] != undefined ) {
-            if ( lines[i].includes("**strong hit**") ) {
-              currentLine = "strong hit";
-            }
-            else if ( lines[i].includes("**weak hit**") ) {
-              currentLine = "weak hit";
-            }
-            else if ( lines[i].includes("**miss**") ) {
-              currentLine = "miss";
-            }
-                            
-            let newLine = "<p>" + replaceHTML(lines[i]).trim() + "</p>";
-            let oldLine = currentLine;
-            if ( newLine.includes("<p>&nbsp;</p>") || newLine === "<p> </p>" || newLine.includes("|") ) { 
-                oldLine = currentLine; 
-                currentLine = "skip"; 
-            }
-
-            switch ( currentLine ) {
-              case "description":
-                    description += newLine;
-                    break;
-                case "strong hit":
-                    strongHit += newLine;
-                    break;
-                case "weak hit":
-                    weakHit += newLine;
-                    break;
-                case "miss":
-                    miss += newLine;
-                    break;
-            }
-
-            currentLine = currentLine === "skip" ? oldLine : currentLine;
-        }
-    }
-
-    moves.push({
-      name: move.Name,
-      type: "move",
-      moveType: move.Category.substring(0,(move.Category.length - 6)),
-      description: description,
-      strongHit: strongHit,
-      weakHit: weakHit,
-      miss: miss
-    });
-
+    for ( const move of category.Moves ) {
+      let description = "";
+      let strongHit = "";
+      let weakHit = "";
+      let miss = "";
+      let currentLine = "description";
+  
+      var lines = move.Text.split('\n');
+  
+      for ( let i = 0; i <= lines.length; i++ ) {
+          if ( lines[i] != undefined ) {
+              if ( lines[i].includes("**strong hit**") ) {
+                currentLine = "strong hit";
+              }
+              else if ( lines[i].includes("**weak hit**") ) {
+                currentLine = "weak hit";
+              }
+              else if ( lines[i].includes("**miss**") ) {
+                currentLine = "miss";
+              }
+                              
+              let newLine = "<p>" + replaceHTML(lines[i]).trim() + "</p>";
+              let oldLine = currentLine;
+              if ( newLine.includes("<p>&nbsp;</p>") || newLine === "<p> </p>" || newLine.includes("|") ) { 
+                  oldLine = currentLine; 
+                  currentLine = "skip"; 
+              }
+  
+              switch ( currentLine ) {
+                case "description":
+                      description += newLine;
+                      break;
+                  case "strong hit":
+                      strongHit += newLine;
+                      break;
+                  case "weak hit":
+                      weakHit += newLine;
+                      break;
+                  case "miss":
+                      miss += newLine;
+                      break;
+              }
+  
+              currentLine = currentLine === "skip" ? oldLine : currentLine;
+          }
+      }
+      moves.push({
+        id: move.$id,
+        name: move.Name,
+        type: "move",
+        moveType: category.Name, // move.Category.substring(0,(move.Category.length - 6)),
+        description: description,
+        strongHit: strongHit,
+        weakHit: weakHit,
+        miss: miss
+      });
+  
+    }    
   }
 
   const movesCompendium = game.packs.get('starforged.starforged-moves')
   for ( const move of moves ) {
       await movesCompendium.documentClass.create ({
+          _id: move.id,
           name: move.name,
           type: move.type,
           data: {
+            id: move.id,
             moveType: move.moveType.toLowerCase(),
             description: move.description,
             strongHit: move.strongHit,
             weakHit: move.weakHit,
             miss: move.miss
           }          
-      }, {pack: movesCompendium.collection} );
+      }, {pack: movesCompendium.collection, keepId: true} );
   }
 
   for ( const move of movesCompendium) {
+      let newId = await replaceMove(move.data.data.id, move.name);
       let newDescription = await replaceMove(move.data.data.description, move.name);
       let newStrongHit = await replaceMove(move.data.data.strongHit, move.name);
       let newWeakHit = await replaceMove(move.data.data.weakHit, move.name);
@@ -660,36 +662,38 @@ export async function importMoves () {
 
       await move.update( {
           data: {
+              id: newId,
               description: newDescription,
               strongHit: newStrongHit,
               weakHit: newWeakHit,
               miss: newMiss
           }
       })
+      console.log(move);
   }
 }
 
 async function replaceMove(text, moveName){ 
-  while ( text.includes("[") ) {
-    let start = text.indexOf("[");
+  while ( text.includes(" [") ) {
+    let start = text.indexOf(" [");
     let end = text.indexOf("]") + 1;
     let regEx = text.slice(start, end);
 
-    let move = text.slice(start + 1, end - 1);
+    let move = text.slice(start + 2, end - 1);
 
     const pack = await game.packs.get('starforged.starforged-moves');
     const packMove = pack.getName(move);
     const name = packMove.name;
     const id = packMove.id;
 
-    const link = `<a class='entity-link' data-pack="starforged.starforged-moves" data-id='` + id + `' style='display: inline-block'><i class="fas fa-suitcase"></i> ` + name + `</a>`
+    const link = ` <a class='entity-link' data-pack="starforged.starforged-moves" data-id='` + id + `' style='display: inline-block'><i class="fas fa-suitcase"></i> ` + name + `</a>`;
+    // const link = ` @Item[` + id + `]{` + name + `}`;
 
     text = text.replace(regEx, link);
 
     let remove = "(#" + move + ")";
     while ( remove.includes(" ") ){ remove = remove.replace(" ", "-"); }
     text = text.replace(remove, "");
-   
   }
 
   while ( text.includes("<p></p>")) { text = text.replace("<p></p>", "" ); }

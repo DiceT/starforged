@@ -1,4 +1,4 @@
-<div class="challenge-details">
+<div class="challenge-details item" data-item-id="{{_id}}">
     <div>
         <div class="difficulty-track">
             <div><h3>
@@ -15,7 +15,7 @@
     <div class="starforged-generator">
         <div class="button-stack-spacer full progress-button">&nbsp;</div>
         <div class="button-stack-spacer full progress-button">&nbsp;</div>
-        <div class="button-stack-spacer full progress-button">&nbsp;</div>
         <div class="button-stack-button full progress-button complete-progress {{#if data.completed}}roll-bonus-selected{{/if}}" data-item-id="{{_id}}">Complete</div>
+        <div class="button-stack-button full progress-button item-edit" data-item-id="{{_id}}">View/Edit</div>
     </div>
 </div>

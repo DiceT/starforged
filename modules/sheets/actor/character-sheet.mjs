@@ -87,6 +87,7 @@ export class StarforgedCharacterSheet extends ActorSheet {
         const derelictsCompleted = [];
         const precursorsCompleted = [];
         const assets = [];
+        let movesSession = [];
         let movesAdventure = [];
         let movesQuest = [];
         let movesConnection = [];
@@ -145,6 +146,9 @@ export class StarforgedCharacterSheet extends ActorSheet {
             else if ( i.type === "asset" ) {
                 assets.push(i);
             }
+            else if ( i.type === "move" && i.data.moveType === "session") {
+                movesSession.push(i);
+            }
             else if ( i.type === "move" && i.data.moveType === "adventure") {
                 movesAdventure.push(i);
             }
@@ -192,6 +196,7 @@ export class StarforgedCharacterSheet extends ActorSheet {
         context.derelictsCompleted = derelictsCompleted;
         context.precursorsCompleted = precursorsCompleted;
         context.assets = assets;
+        context.movesSession = movesSession;
         context.movesAdventure = movesAdventure;
         context.movesQuest = movesQuest;
         context.movesConnection = movesConnection;
@@ -279,7 +284,7 @@ export class StarforgedCharacterSheet extends ActorSheet {
         // Impact Toggles
         html.find('.impact-enabled').click(this._onImpactEnabled.bind(this));
  
-            // Owned Item management
+        // Owned Item management
         html.find('.item-create').click(this._onItemCreate.bind(this));
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.item-delete').click(this._onItemDelete.bind(this));
