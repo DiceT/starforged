@@ -1,3 +1,6 @@
+v0.8.2
+ - Removed the duplicated moves when in multiplayer.
+
 v0.8.1
  - Added support for Session moves.
  - Swapped order of Threshold and Recover move categories to align with the Starforged rule book.

@@ -85,6 +85,7 @@ Hooks.on('createActor', async (actor, options, id) => {
 
   // Add starting Legacies and Background Vow
   if (actor.data.type == 'character') {
+    if(id != game.userId) return;
     let legacies = game.items.filter( i => i.type == "challenge" && ( i.data.data.type == "legacy" || i.data.data.typ == "backgroundVow" ) );
     let pack = game.packs.get("starforged.legacies");
     let compendium = pack ? await pack.getDocuments() : [];
