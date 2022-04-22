@@ -1,3 +1,8 @@
+v0.8.3
+ - updated actorLink for token to be TRUE by default.
+ - Fixed the CONTINUE button on the Legacy tracks.
+ - Reverted data import to the included packs ONLY. Dataforged import is currently unavailable until rewrite of its import.
+
 v0.8.2
  - Removed the duplicated moves when in multiplayer.
 

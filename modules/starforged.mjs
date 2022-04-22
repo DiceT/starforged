@@ -71,7 +71,7 @@ Hooks.on("init", () => {
 Hooks.once("ready", async() => {
     // This is reserved for things that need to happen right after Foundry fully loads (after init).
     await initializeFolders();
-    await processDataforged();
+    // await processDataforged();
 
     await initializeRollTables();
     return;
@@ -81,7 +81,8 @@ Hooks.once("ready", async() => {
 // Things to do when a character is created
 Hooks.on('createActor', async (actor, options, id) => {
   // Prepare updates object.
-  let updates = {};
+  actor.data.token.actorLink = true;
+  actor.data.update(actor.data);
 
   // Add starting Legacies and Background Vow
   if (actor.data.type == 'character') {
@@ -139,7 +140,6 @@ Hooks.on('createActor', async (actor, options, id) => {
 
   }
 });
-
 
 /*  -----------------------------------------------
 *    SETUP HOOK

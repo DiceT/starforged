@@ -1,10 +1,7 @@
 /**
  * @extends {Actor}
  */
-
 export class StarforgedActor extends Actor {
-
-
     
     /** @override */
     prepareData() {

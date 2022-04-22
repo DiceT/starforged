@@ -2,53 +2,20 @@
   "name": "starforged",
   "title": "Ironsworn: Starforged",
   "description": "Forked version of Ironsworn: Starforged for FoundryVTT!",
-  "version": "0.8.2",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
   "author": "Dice T, Zaxim",
+  "authors": [],
+  "url": "https://github.com/dicet/starforged",
+  "license": "LICENSE.txt",
+  "flags": {},
+  "version": "0.8.3",
+  "minimumCoreVersion": "0.9.0",
+  "compatibleCoreVersion": "9",
+  "scripts": [],
   "esmodules": [
     "modules/starforged.mjs"
   ],
   "styles": [
     "css/starforged.css"
-  ],
-  "scripts": [],
-  "packs": [
-    {
-      "name": "starforged-assets",
-      "label": "Starforged Assets",
-      "system": "starforged",
-      "path": "./packs/assets.db",
-      "entity": "Item"
-    },
-    {
-      "name": "legacies",
-      "label": "Starforged Legacies",
-      "system": "starforged",
-      "path": "./packs/legacies.db",
-      "entity": "Item"
-    },
-    {
-      "name": "starforged-moves",
-      "label": "Starforged Moves",
-      "system": "starforged",
-      "path": "./packs/moves.db",
-      "entity": "Item"
-    },
-    {
-      "name": "macros",
-      "label": "Starforged Macros",
-      "system": "starforged",
-      "path": "./packs/macros.db",
-      "entity": "Macro"
-    },
-    {
-      "name": "starforged-tables",
-      "label": "Starforged Tables",
-      "system": "starforged",
-      "path": "./packs/tables.db",
-      "entity": "RollTable"
-    }
   ],
   "languages": [
     {
@@ -57,12 +24,59 @@
       "path": "lang/en.json"
     }
   ],
+  "packs": [
+    {
+      "name": "starforged-assets",
+      "label": "Starforged Assets",
+      "system": "starforged",
+      "path": "./packs/assets.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "legacies",
+      "label": "Starforged Legacies",
+      "system": "starforged",
+      "path": "./packs/legacies.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "starforged-moves",
+      "label": "Starforged Moves",
+      "system": "starforged",
+      "path": "./packs/moves.db",
+      "entity": "Item",
+      "type": "Item",
+      "private": false
+    },
+    {
+      "name": "macros",
+      "label": "Starforged Macros",
+      "system": "starforged",
+      "path": "./packs/macros.db",
+      "entity": "Macro",
+      "type": "Macro",
+      "private": false
+    },
+    {
+      "name": "starforged-tables",
+      "label": "Starforged Tables",
+      "system": "starforged",
+      "path": "./packs/tables.db",
+      "entity": "RollTable",
+      "type": "RollTable",
+      "private": false
+    }
+  ],
+  "system": [],
+  "dependencies": [],
+  "socket": false,
+  "manifest": "https://raw.githubusercontent.com/dicet/starforged/0.8.3/system.json",
+  "download": "https://github.com/dicet/starforged/archive/refs/tags/0.8.3.zip",
+  "protected": false,
   "gridDistance": 0.5,
-  "gridUnits": "LY",
-  "primaryTokenAttribute": "",
-  "secondaryTokenAttribute": "",
-  "url": "https://github.com/dicet/starforged",
-  "manifest": "https://raw.githubusercontent.com/dicet/starforged/0.8.2/system.json",
-  "download": "https://github.com/dicet/starforged/archive/refs/tags/0.8.2.zip",
-  "license": "LICENSE.txt"
+  "gridUnits": "LY"
 }
