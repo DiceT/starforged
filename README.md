@@ -1,7 +1,12 @@
-Back to life. Back to reality.
+Development on this system is officially stopped. Please use Ben's Ironsworn/Starforged system, which now supports both games.
 
-Known issues:
- - see the TODOLIST.md for current outstanding issues.
+https://github.com/ben/foundry-ironsworn
+
+Ben has incorporated much of the unique features from my system into his. This system will remain intact for the time being, as I do know there are several people that have used this system for a while now.
+
+
+
+Back to life. Back to reality.
 
 This system, designed to play Ironsworn: Starforged, features robust content generation utilities meant to increase your immersion while also getting you to the gameplay faster. The core system features approximately 260 tables and is designed to be easily expandable simply by dropping new tables into the designated folders. While this system is currently in its first release state, it is feature-rich and allows you to play Starforged to its full extent. This system is unofficial.
 
@@ -10,7 +15,6 @@ This system, designed to play Ironsworn: Starforged, features robust content gen
 FULL README WILL BE UPLOADED SOON.
 
 TLDW: Create a new character. Switch to the TOOLS tab. Generate Your Truths and read the journal entries about your custom system. Generate a sector. Generate some planets and settlements. Play. Become ruler of the galaxy.
-
 
 In the meantime, check out the installation and tour video at https://www.youtube.com/watch?v=25jM_uhllgM.
 
